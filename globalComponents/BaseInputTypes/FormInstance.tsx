@@ -4,12 +4,14 @@ import { DateInput } from "./Date/DateInput";
 import { EmailInput } from "./Email/EmailInput";
 import { NumberInput } from "./Number/NumberInput";
 import { PasswordInput } from "./Password/PasswordInput";
+import { SelectInput } from "./Select/SelectInput";
 import { StringInput } from "./String/StringInput";
 import stylesheet from "./stylesheet";
 
 export interface FormInstanceProps {
   values: Array<{
     name: string;
+    choices?: Array<string>;
     placeholder?: string;
     type: TYPE;
     value: any;
@@ -26,6 +28,7 @@ export enum TYPE {
   number,
   password,
   repeatedPassword,
+  select,
   string,
 }
 
@@ -95,6 +98,12 @@ export const FormInstance: FC<FormInstanceProps> = ({
               </div>
             );
           } else return null;
+        case TYPE.select:
+          return (
+            <div style={stylesheet.inputContainer(size)} key={index}>
+              <SelectInput size={size} {...value} />
+            </div>
+          );
         case TYPE.string:
           return (
             <div style={stylesheet.inputContainer(size)} key={index}>

@@ -26,6 +26,11 @@ const formContainer: React.CSSProperties = {
   ...flex,
 };
 
+const option: React.CSSProperties = {
+  backgroundColor: colors.default.lightGrey,
+  ...text,
+};
+
 const inputContainer = (size: number): React.CSSProperties => {
   return {
     marginTop: `${size}rem`,
@@ -87,6 +92,7 @@ export default {
   inlineFlex,
   text,
   formContainer,
+  option,
   inputBox,
   icon,
   focus,

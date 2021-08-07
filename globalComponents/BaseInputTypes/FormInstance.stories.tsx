@@ -14,6 +14,7 @@ export const Form = () => {
   const [value5, updateValue5] = useState<string>("");
   const [value6, updateValue6] = useState<string>("");
   const [value7, updateValue7] = useState<string>("");
+  const [value8, updateValue8] = useState<string>("");
 
   const mockdata = [
     {
@@ -54,9 +55,16 @@ export const Form = () => {
     },
     {
       name: "name7",
-      type: TYPE.string,
+      choices: ["a", "b", "c"],
+      type: TYPE.select,
       value: value7,
       updateValue: updateValue7,
+    },
+    {
+      name: "name8",
+      type: TYPE.string,
+      value: value8,
+      updateValue: updateValue8,
     },
   ];
 
