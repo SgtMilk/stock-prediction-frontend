@@ -8,6 +8,14 @@ export interface ObjectInstanceProps {
   style?: React.CSSProperties;
 }
 
+/**
+ * This component will display a json-type object
+ *
+ * @param value (json-type object)
+ * @param size (the size if the component, will default to 1, optional)
+ * @param style (React.CSSProperties, optional)
+ * @constructor
+ */
 export const ObjectInstance: FC<ObjectInstanceProps> = ({
   value,
   size = 1,
@@ -21,17 +29,9 @@ export const ObjectInstance: FC<ObjectInstanceProps> = ({
           size,
           style,
         };
-        const objectCheck = Array.isArray(v) || v instanceof Object;
-        return objectCheck ? (
-          <div key={index} style={objectCSS.inlineFlex}>
-            <p>{k}</p>
-            <div style={objectCSS.padding} />
-            <Delegate {...delegateProps} />
-          </div>
-        ) : (
-          <li key={index} style={objectCSS.inlineFlex}>
-            <p>{k}</p>
-            <div style={objectCSS.padding} />
+        return (
+          <li key={index}>
+            {`${k}: `}
             <Delegate {...delegateProps} />
           </li>
         );

@@ -7,5 +7,14 @@ export default {
 };
 
 export const Default = () => {
-  return <ObjectInstance style={{ width: "40vw" }} size={1} value={[]} />;
+  return (
+    <ObjectInstance
+      style={{ width: "40vw" }}
+      size={1}
+      value={{
+        value1: "value1",
+        value2: { value1: "value1", value2: [1, "value1"] },
+      }}
+    />
+  );
 };

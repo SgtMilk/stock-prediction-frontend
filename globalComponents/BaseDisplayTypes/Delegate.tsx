@@ -13,6 +13,15 @@ export interface DelegateProps {
   style?: React.CSSProperties;
 }
 
+/**
+ * This component will display of any of the following types:
+ * array, boolean, Date ts object, number, json-type object, string
+ *
+ * @param value (array, boolean, Date ts object, number, json-type object, string)
+ * @param size (the size if the component, will default to 1, optional)
+ * @param style (React.CSSProperties, optional)
+ * @constructor
+ */
 export const Delegate: FC<DelegateProps> = (props): ReactElement => {
   const type = typeof props.value;
   switch (type) {
