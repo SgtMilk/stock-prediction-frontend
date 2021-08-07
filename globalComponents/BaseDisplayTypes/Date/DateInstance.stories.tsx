@@ -2,7 +2,7 @@ import React from "react";
 import { DateInstance } from "./DateInstance";
 
 export default {
-  title: "Base Display Types/Date Instance",
+  title: "Global Components/Base Display Types/Date Instance",
   component: DateInstance,
 };
 

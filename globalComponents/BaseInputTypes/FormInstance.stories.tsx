@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import { FormInstance, TYPE } from "./FormInstance";
 
 export default {
-  title: "Base Input Types/FormInstance",
+  title: "Global Components/Base Input Types",
   component: FormInstance,
 };
 
-export const Default = () => {
+export const Form = () => {
   const [value1, updateValue1] = useState<boolean>(false);
   const [value2, updateValue2] = useState<Date>(new Date(0));
   const [value3, updateValue3] = useState<string>("");

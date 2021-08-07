@@ -2,7 +2,7 @@ import React from "react";
 import { ObjectInstance } from "./ObjectInstance";
 
 export default {
-  title: "Base Display Types/Object Instance",
+  title: "Global Components/Base Display Types/Object Instance",
   component: ObjectInstance,
 };
 

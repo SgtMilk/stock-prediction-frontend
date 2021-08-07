@@ -2,7 +2,7 @@ import React from "react";
 import { StringInstance } from "./StringInstance";
 
 export default {
-  title: "Base Display Types/String Instance",
+  title: "Global Components/Base Display Types/String Instance",
   component: StringInstance,
 };
 

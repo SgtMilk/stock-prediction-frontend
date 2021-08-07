@@ -2,7 +2,7 @@ import React from "react";
 import { Delegate } from "./Delegate";
 
 export default {
-  title: "Base Display Types/Delegate",
+  title: "Global Components/Base Display Types/Delegate",
   component: Delegate,
 };
 

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { BooleanInput } from "./BooleanInput";
 
 export default {
-  title: "Base Input Types/BooleanInput",
+  title: "Global Components/Base Input Types/BooleanInput",
   component: BooleanInput,
 };
 

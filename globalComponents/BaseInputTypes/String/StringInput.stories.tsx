@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { StringInput } from "./StringInput";
 
 export default {
-  title: "Base Input Types/StringInput",
+  title: "Global Components/Base Input Types/StringInput",
   component: StringInput,
 };
 

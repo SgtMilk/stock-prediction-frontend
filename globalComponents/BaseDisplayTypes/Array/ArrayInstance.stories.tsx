@@ -2,7 +2,7 @@ import React from "react";
 import { ArrayInstance } from "./ArrayInstance";
 
 export default {
-  title: "Base Display Types/Array Instance",
+  title: "Global Components/Base Display Types/Array Instance",
   component: ArrayInstance,
 };
 

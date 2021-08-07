@@ -2,7 +2,7 @@ import React from "react";
 import { NumberInstance } from "./NumberInstance";
 
 export default {
-  title: "Base Display Types/Number Instance",
+  title: "Global Components/Base Display Types/Number Instance",
   component: NumberInstance,
 };
 

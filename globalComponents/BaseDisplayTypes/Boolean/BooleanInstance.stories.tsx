@@ -2,7 +2,7 @@ import React from "react";
 import { BooleanInstance } from "./BooleanInstance";
 
 export default {
-  title: "Base Display Types/Boolean Instance",
+  title: "Global Components/Base Display Types/Boolean Instance",
   component: BooleanInstance,
 };
 

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { DateInput } from "./DateInput";
 
 export default {
-  title: "Base Input Types/DateInput",
+  title: "Global Components/Base Input Types/DateInput",
   component: DateInput,
 };
 

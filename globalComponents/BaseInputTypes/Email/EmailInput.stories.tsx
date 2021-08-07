@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { EmailInput } from "./EmailInput";
 
 export default {
-  title: "Base Input Types/EmailInput",
+  title: "Global Components/Base Input Types/EmailInput",
   component: EmailInput,
 };
 
