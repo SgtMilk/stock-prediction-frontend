@@ -1,7 +1,5 @@
-// Copyright © ST-Keys, 2021. All rights reserved. Licence included in the root folder of this repository.
-
-import { createSlice, createEntityAdapter } from "@reduxjs/toolkit";
-import { RootState } from "src/data/rootReducer";
+import { createSlice } from "@reduxjs/toolkit";
+import { RootState } from "../../rootReducer";
 
 export interface Status {
   context: {};
