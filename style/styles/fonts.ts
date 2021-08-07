@@ -1,3 +1,8 @@
+import React from "react";
 export default {
-  default: "arial",
+  default: "sans-serif",
+};
+
+const beep: React.CSSProperties = {
+  fontFamily: "",
 };

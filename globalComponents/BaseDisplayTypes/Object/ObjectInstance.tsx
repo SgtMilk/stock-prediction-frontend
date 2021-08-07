@@ -1,6 +1,6 @@
 import React, { FC, ReactElement } from "react";
 import { Delegate, DelegateProps } from "../Delegate";
-import { objectCSS } from "../stylesheet";
+import { functionCSS } from "../stylesheet";
 
 export interface ObjectInstanceProps {
   value: { [key: string]: any };
@@ -22,7 +22,7 @@ export const ObjectInstance: FC<ObjectInstanceProps> = ({
   style = {},
 }): ReactElement => {
   return (
-    <ul style={{ ...style, fontSize: `${size}rem` }}>
+    <ul style={{ ...functionCSS.text(size), ...style }}>
       {Object.entries(value).map(([k, v], index) => {
         const delegateProps: DelegateProps = {
           value: v,

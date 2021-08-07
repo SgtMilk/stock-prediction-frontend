@@ -1,5 +1,6 @@
 import React, { FC, ReactElement } from "react";
 import { Delegate, DelegateProps } from "../Delegate";
+import { functionCSS } from "../stylesheet";
 
 export interface ArrayInstanceProps {
   value: Array<any>;
@@ -21,7 +22,7 @@ export const ArrayInstance: FC<ArrayInstanceProps> = ({
   style = {},
 }): ReactElement => {
   return (
-    <ul style={{ ...style, fontSize: `${size}rem` }}>
+    <ul style={{ ...functionCSS.text(size), ...style }}>
       {value.map((v, index) => {
         const delegateProps: DelegateProps = {
           value: v,

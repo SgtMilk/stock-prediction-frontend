@@ -1,4 +1,5 @@
 import React, { FC, ReactElement } from "react";
+import { functionCSS } from "../stylesheet";
 
 export interface StringInstanceProps {
   value: string;
@@ -19,5 +20,5 @@ export const StringInstance: FC<StringInstanceProps> = ({
   size = 1,
   style = {},
 }): ReactElement => {
-  return <div style={{ ...style, fontSize: `${size}rem` }}>{value}</div>;
+  return <div style={{ ...functionCSS.text(size), ...style }}>{value}</div>;
 };

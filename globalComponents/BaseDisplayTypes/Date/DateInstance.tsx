@@ -1,4 +1,5 @@
 import React, { FC, ReactElement } from "react";
+import { functionCSS } from "../stylesheet";
 
 export interface DateInstanceProps {
   value: Date;
@@ -20,7 +21,7 @@ export const DateInstance: FC<DateInstanceProps> = ({
   style = {},
 }): ReactElement => {
   return (
-    <div style={{ ...style, fontSize: `${size}rem` }}>
+    <div style={{ ...functionCSS.text(size), ...style }}>
       {value.toDateString()}
     </div>
   );

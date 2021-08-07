@@ -4,9 +4,9 @@ import { colors, fonts } from "../../style";
 const button = (size: number): React.CSSProperties => ({
   width: "auto",
   backgroundColor: colors.default.accentBlue,
-  paddingTop: `${size}rem`,
-  paddingBottom: `${size}rem`,
-  borderRadius: `${size}rem`,
+  paddingTop: `${size * 0.75}rem`,
+  paddingBottom: `${size * 0.75}rem`,
+  borderRadius: `${size * 0.5}rem`,
   fontSize: `${size}rem`,
   paddingRight: `${size * 1.5}rem`,
   paddingLeft: `${size * 1.5}rem`,

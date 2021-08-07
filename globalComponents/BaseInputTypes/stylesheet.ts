@@ -18,6 +18,7 @@ const inlineFlex: React.CSSProperties = {
 const text: React.CSSProperties = {
   color: colors.default.white,
   fontFamily: fonts.default.default,
+  fontWeight: 600,
 };
 
 const formContainer: React.CSSProperties = {
@@ -37,11 +38,11 @@ const inputContainer = (size: number): React.CSSProperties => {
 const inputBox = (size: number): React.CSSProperties => {
   return {
     width: "100%",
-    backgroundColor: colors.default.grey,
-    paddingTop: `${size}rem`,
-    paddingBottom: `${size}rem`,
-    borderRadius: `${size}rem`,
-    fontSize: `${size * 2}rem`,
+    backgroundColor: colors.default.lightGrey,
+    paddingTop: `${size * 0.75}rem`,
+    paddingBottom: `${size * 0.75}rem`,
+    borderRadius: `${size * 0.5}rem`,
+    fontSize: `${size}rem`,
     paddingRight: `${size * 1.5}rem`,
     paddingLeft: `${size * 1.5}rem`,
     ...text,
@@ -51,21 +52,21 @@ const inputBox = (size: number): React.CSSProperties => {
 
 const icon = (size: number, color: string): React.CSSProperties => {
   return {
-    height: `${size}rem`,
-    width: `${size}rem`,
-    borderRadius: `${size / 2}rem`,
-    border: `${size / 2}rem solid ${color}`,
+    height: `${size / 2}rem`,
+    width: `${size / 2}rem`,
+    borderRadius: `${size / 4}rem`,
+    border: `${size / 4}rem solid ${color}`,
   };
 };
 
 const visibilityIcon = (size: number): React.CSSProperties => {
-  return { width: `${size * 2}rem`, height: "auto" };
+  return { width: `${size}rem`, height: "auto" };
 };
 
 const checkbox = (size: number): React.CSSProperties => {
   return {
-    height: `${2 * size}rem`,
-    width: `${2 * size}rem`,
+    height: `${size}rem`,
+    width: `${size}rem`,
     marginRight: `${size}rem`,
   };
 };
