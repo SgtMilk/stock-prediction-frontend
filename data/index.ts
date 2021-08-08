@@ -1,5 +1,6 @@
 export * as Status from "./slices/statusSlice/statusSlice";
+export * as Stocks from "./slices/stockSlice/stockSlice";
 
 export type { RootState } from "./rootReducer";
-export { createStore } from "./store";
+export { createStore, createEmptyStore, StorybookDecorator } from "./store";
 export * as Hooks from "./hooks";
