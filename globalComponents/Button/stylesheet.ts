@@ -3,7 +3,7 @@ import { colors, fonts } from "../../style";
 
 const button = (size: number): React.CSSProperties => ({
   width: "auto",
-  backgroundColor: colors.default.accentBlue,
+  backgroundColor: colors.accentBlue,
   paddingTop: `${size * 0.75}rem`,
   paddingBottom: `${size * 0.75}rem`,
   borderRadius: `${size * 0.5}rem`,
@@ -24,8 +24,8 @@ const inlineFlex: React.CSSProperties = {
 };
 
 const text: React.CSSProperties = {
-  color: colors.default.white,
-  fontFamily: fonts.default.default,
+  color: colors.white,
+  fontFamily: fonts.main,
   fontWeight: 650,
 };
 

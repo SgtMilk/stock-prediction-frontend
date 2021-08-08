@@ -9,6 +9,14 @@ export interface ButtonProps {
   style?: React.CSSProperties;
 }
 
+/**
+ * Custom Button
+ * @param onClick (callback function for clicking the button)
+ * @param size (number, size of the component, optional)
+ * @param children (child jsx components, optional)
+ * @param style (React.CSSProperties, optional)
+ * @constructor
+ */
 export const Button: FC<ButtonProps> = ({
   onClick,
   size = 1,

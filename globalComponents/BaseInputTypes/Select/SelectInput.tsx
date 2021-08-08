@@ -12,7 +12,7 @@ export interface SelectInputProps {
 }
 
 /**
- * This component will display an input for an email. It will show an indicator if the email is valid
+ * This component will display a select input
  * @param name (string)
  * @param choices (array of strings)
  * @param size (number, optional)

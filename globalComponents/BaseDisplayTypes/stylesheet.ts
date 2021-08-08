@@ -9,7 +9,7 @@ export const objectCSS: { [key: string]: CSSProperties } = {
 
 export const functionCSS: { [key: string]: (...args: any) => CSSProperties } = {
   text: (size: number) => ({
-    fontFamily: fonts.default.default,
+    fontFamily: fonts.main,
     fontSize: `${size}rem`,
   }),
 };

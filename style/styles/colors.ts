@@ -1,8 +1,6 @@
-export default {
-  lightGrey: "#494949",
-  grey: "#373A3C",
-  darkGrey: "#262829",
-  accentBlue: "#3C5763",
-  white: "#FFFFFF",
-  unselectedGrey: "#A8A8A8",
-};
+export const lightGrey = "#494949";
+export const grey = "#373A3C";
+export const darkGrey = "#262829";
+export const accentBlue = "#3C5763";
+export const white = "#FFFFFF";
+export const unselectedGrey = "#A8A8A8";

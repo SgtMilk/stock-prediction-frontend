@@ -16,8 +16,8 @@ const inlineFlex: React.CSSProperties = {
 };
 
 const text: React.CSSProperties = {
-  color: colors.default.white,
-  fontFamily: fonts.default.default,
+  color: colors.white,
+  fontFamily: fonts.main,
   fontWeight: 600,
 };
 
@@ -27,7 +27,7 @@ const formContainer: React.CSSProperties = {
 };
 
 const option: React.CSSProperties = {
-  backgroundColor: colors.default.lightGrey,
+  backgroundColor: colors.lightGrey,
   ...text,
 };
 
@@ -43,7 +43,7 @@ const inputContainer = (size: number): React.CSSProperties => {
 const inputBox = (size: number): React.CSSProperties => {
   return {
     width: "100%",
-    backgroundColor: colors.default.lightGrey,
+    backgroundColor: colors.lightGrey,
     paddingTop: `${size * 0.75}rem`,
     paddingBottom: `${size * 0.75}rem`,
     borderRadius: `${size * 0.5}rem`,
@@ -84,7 +84,7 @@ const spacer = (size: number): React.CSSProperties => {
 };
 
 const focus = (element: HTMLElement) => {
-  element.style.backgroundColor = colors.default.darkGrey;
+  element.style.backgroundColor = colors.darkGrey;
 };
 
 export default {
