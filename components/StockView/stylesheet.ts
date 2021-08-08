@@ -12,7 +12,7 @@ export const functionCSS: {
       flexDirection: "column",
       alignItems: "center",
       justifyContent: "center",
-      height: expanded ? "90vh" : `${90 / sqrt - (5 - sqrt)}vh`,
+      height: expanded ? "80vh" : `${90 / sqrt - (5 - sqrt)}vh`,
       width: expanded ? "100vw" : `${100 / sqrt - (5 - sqrt)}vw`,
       margin: `${margin}vh ${margin}vw ${margin}vh ${margin}vw`,
       backgroundColor: colors.darkGrey,
