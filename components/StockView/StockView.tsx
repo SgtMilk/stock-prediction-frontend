@@ -54,7 +54,10 @@ export const StockView: FC<StockViewProps> = ({
         <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
         <XAxis dataKey="date" stroke="#FFFFFF" />
         <YAxis stroke="#FFFFFF" domain={["auto", "auto"]} />
-        <Tooltip />
+        <Tooltip
+          payload={[{ name: "05-01", value: 12, unit: "kg" }]}
+          itemStyle={{ color: "black" }}
+        />
       </LineChart>
     </ResponsiveContainer>
   ) : null;
