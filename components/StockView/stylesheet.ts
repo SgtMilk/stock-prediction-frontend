@@ -4,17 +4,22 @@ import { colors } from "../../style";
 export const functionCSS: {
   [key: string]: (...args: any) => CSSProperties;
 } = {
-  box: (expanded: boolean, mode: number) => ({
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-    height: expanded ? "90vh" : `${90 / Math.sqrt(mode)}vh`,
-    width: expanded ? "100vw" : `${100 / Math.sqrt(mode)}vw`,
-    backgroundColor: colors.darkGrey,
-    borderRadius: expanded ? "10vh" : `${10 / Math.sqrt(mode)}vh`,
-    transition: "0.3s",
-  }),
+  box: (expanded: boolean, mode: number) => {
+    const sqrt = Math.sqrt(mode);
+    const margin = (5 - sqrt) / 2;
+    return {
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "center",
+      height: expanded ? "90vh" : `${90 / sqrt - (5 - sqrt)}vh`,
+      width: expanded ? "100vw" : `${100 / sqrt - (5 - sqrt)}vw`,
+      margin: `${margin}vh ${margin}vw ${margin}vh ${margin}vw`,
+      backgroundColor: colors.darkGrey,
+      borderRadius: expanded ? "10vh" : `${10 / sqrt}vh`,
+      transition: "0.3s",
+    };
+  },
   title: (expanded: boolean, mode: number) => ({
     color: colors.white,
     fontWeight: 600,
