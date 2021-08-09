@@ -23,6 +23,8 @@ export const ConnectedStockView: FC<ConnectedStockViewProps> = ({
     Stocks.selectors.selectById(state, stockId)
   );
 
+  console.log(stock);
+
   if (stock) {
     let stockMode;
     switch (stock.mode) {

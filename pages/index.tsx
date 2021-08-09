@@ -1,8 +1,8 @@
-import React, { ReactElement } from "react";
+import React, { ReactElement, useState } from "react";
 import { Titlebar, Portfolio } from "../components";
 import { mainpage } from "../style";
-import { useFetchPortfolios } from "./helpers/fetch";
-import { Provider, useSelector } from "react-redux";
+import { FetchPortfolios } from "./helpers/fetch";
+import { Provider, useDispatch, useSelector } from "react-redux";
 import { Stocks, createEmptyStore } from "../data";
 
 /**
@@ -24,18 +24,36 @@ const index = (): ReactElement => {
  * @constructor
  */
 export const Mainpage = (): ReactElement => {
-  useFetchPortfolios();
+  const dispatch = useDispatch();
+  const [fetched, setFetched] = useState<boolean>(false);
+  if (!fetched) {
+    FetchPortfolios(dispatch);
+    setFetched(true);
+  }
 
   const stocks = useSelector(Stocks.selectors.selectAll);
   const stockIds = stocks.map((stock) => stock.id);
 
   return (
-    <div style={{ width: "100vw", minHeight: "100vh" }}>
+    <div
+      style={{
+        width: "100vw",
+        minHeight: "100vh",
+        ...mainpage.objectCSS.portfolio,
+      }}
+    >
       <style>{`
         body {
           margin: 0px;
           padding: 0px;
+          height: 100vh;
+          width: 100vw;
+          overflow-x: hidden;
         }
+        ::-webkit-scrollbar {
+          width: 0;  /* Remove scrollbar space */
+          background: transparent;  /* Optional: just make scrollbar invisible */
+      }
       `}</style>
       <Titlebar />
       <Portfolio stockIds={stockIds} style={mainpage.objectCSS.portfolio} />
