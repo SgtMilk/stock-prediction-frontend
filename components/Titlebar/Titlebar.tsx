@@ -3,7 +3,6 @@ import { objectCSS } from "./stylesheet";
 import { Display, Button } from "../../globalComponents";
 
 export interface TitlebarProps {
-  menuCallback: () => void;
   style?: React.CSSProperties;
 }
 
@@ -13,20 +12,13 @@ export interface TitlebarProps {
  * @param style (React.CSSProperties, optional)
  * @constructor
  */
-export const Titlebar: FC<TitlebarProps> = ({
-  menuCallback,
-  style,
-}): ReactElement => {
+export const Titlebar: FC<TitlebarProps> = ({ style }): ReactElement => {
   return (
     <div style={{ ...objectCSS.box, ...style }}>
-      <Button onClick={menuCallback} style={objectCSS.button}>
-        Menu
-      </Button>
       <Display.String.StringInstance
         value={"The Stock Prediction Project"}
         style={objectCSS.title}
       />
-      <div style={{ width: "6vw" }} />
     </div>
   );
 };

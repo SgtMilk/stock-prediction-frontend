@@ -49,6 +49,11 @@ export const PasswordInput: FC<PasswordInputProps> = ({
       style={{ ...stylesheet.inputBox(size), ...style }}
       data-testid="PasswordInput"
     >
+      <style>{`
+        .input {
+          all: unset;
+        }
+      `}</style>
       <input
         type={visible ? "text" : "password"}
         style={{ width: "100%" }}

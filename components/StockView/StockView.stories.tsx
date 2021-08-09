@@ -55,7 +55,8 @@ export const Connected = () => {
   const dispatch = useDispatch();
   const stock = {
     id: 1,
-    name: "AMZN - Weekly",
+    name: "AMZN",
+    mode: 5,
     graphData: [
       {
         date: "2021-07-27",

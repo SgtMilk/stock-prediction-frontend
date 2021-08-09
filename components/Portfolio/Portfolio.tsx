@@ -5,9 +5,19 @@ import { objectCSS } from "./stylesheet";
 
 export interface PortfolioProps {
   stockIds: Array<number>;
+  style?: React.CSSProperties;
 }
 
-export const Portfolio: FC<PortfolioProps> = ({ stockIds }): ReactElement => {
+/**
+ * The Portfolio component displays and formats a list of StockView components
+ * @param stockIds (an array of stock ids to fetch the stocks in the state afterwards)
+ * @param style (React.CSSProperties, optional)
+ * @constructor
+ */
+export const Portfolio: FC<PortfolioProps> = ({
+  stockIds,
+  style,
+}): ReactElement => {
   const [mode, setMode] = useState<string>("4");
   const modeProps: Input.Select.SelectInputProps = {
     name: "mode",
@@ -16,7 +26,7 @@ export const Portfolio: FC<PortfolioProps> = ({ stockIds }): ReactElement => {
     updateValue: setMode,
   };
   return (
-    <div>
+    <div style={style}>
       <div style={objectCSS.buttons}>
         <Input.Select.SelectInput
           {...modeProps}

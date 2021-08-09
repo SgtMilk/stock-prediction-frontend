@@ -37,6 +37,11 @@ export const DateInput: FC<DateInputProps> = ({
       style={{ ...stylesheet.inputBox(size), ...style }}
       data-testid="DateInput"
     >
+      <style>{`
+        .input {
+          all: unset;
+        }
+      `}</style>
       <input
         type="date"
         onChange={handleUpdate}

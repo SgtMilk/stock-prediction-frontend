@@ -37,6 +37,11 @@ export const BooleanInput: FC<BooleanInputProps> = ({
       style={{ ...stylesheet.inputBox(size), ...style }}
       data-testid="BooleanInput"
     >
+      <style>{`
+        .input {
+          all: unset;
+        }
+      `}</style>
       <input
         type="checkbox"
         onChange={handleUpdate}

@@ -1,6 +1,5 @@
 import React, { useState, ReactElement, FC, useRef } from "react";
 import stylesheet from "../stylesheet";
-import "../stylesheet.css";
 
 export interface EmailInputProps {
   name: string;
@@ -33,8 +32,7 @@ export const EmailInput: FC<EmailInputProps> = ({
 
   const ValidateEmail = (e: any) => {
     updateValue(e.target.value);
-    const re =
-      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     setErrorMessage(re.test(String(value).toLowerCase()));
   };
 
@@ -43,6 +41,11 @@ export const EmailInput: FC<EmailInputProps> = ({
       style={{ ...stylesheet.inputBox(size), ...style }}
       data-testid="EmailInput"
     >
+      <style>{`
+        .input {
+          all: unset;
+        }
+      `}</style>
       <input
         type="email"
         onChange={ValidateEmail}

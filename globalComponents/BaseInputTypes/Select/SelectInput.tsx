@@ -40,6 +40,11 @@ export const SelectInput: FC<SelectInputProps> = ({
       style={{ ...stylesheet.inputBox(size), ...style }}
       data-testid="SelectInput"
     >
+      <style>{`
+        .input {
+          all: unset;
+        }
+      `}</style>
       <select
         onChange={handleUpdate}
         style={{ width: "100%" }}

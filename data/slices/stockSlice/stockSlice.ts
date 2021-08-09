@@ -4,6 +4,7 @@ import { RootState } from "../../rootReducer";
 export interface Stock {
   id: number;
   name: string;
+  mode: number;
   graphData?: Array<{
     date: string;
     price: number;
@@ -19,6 +20,7 @@ const stockSlice = createSlice({
     addStock: stocksAdapter.addOne,
     setStocks: stocksAdapter.setAll,
     removeStock: stocksAdapter.removeOne,
+    updateStock: stocksAdapter.setOne,
   },
 });
 

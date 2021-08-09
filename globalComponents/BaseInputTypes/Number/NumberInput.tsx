@@ -37,6 +37,11 @@ export const NumberInput: FC<NumberInputProps> = ({
       style={{ ...stylesheet.inputBox(size), ...style }}
       data-testid="NumberInput"
     >
+      <style>{`
+        .input {
+          all: unset;
+        }
+      `}</style>
       <input
         type="number"
         style={{ width: "100%" }}

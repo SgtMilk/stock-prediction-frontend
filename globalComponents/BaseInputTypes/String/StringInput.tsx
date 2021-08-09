@@ -37,6 +37,11 @@ export const StringInput: FC<StringInputProps> = ({
       style={{ ...stylesheet.inputBox(size), ...style }}
       data-testid="StringInput"
     >
+      <style>{`
+        .input {
+          all: unset;
+        }
+      `}</style>
       <input
         type="text"
         onChange={handleUpdate}

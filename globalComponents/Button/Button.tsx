@@ -1,6 +1,5 @@
 import React, { FC, ReactElement, ReactNode } from "react";
 import stylesheet from "./stylesheet";
-import "./stylesheet.css";
 
 export interface ButtonProps {
   onClick: () => void;
@@ -24,12 +23,19 @@ export const Button: FC<ButtonProps> = ({
   style = {},
 }): ReactElement => {
   return (
-    <div
-      onClick={onClick}
-      style={{ ...stylesheet.button(size), ...style }}
-      className="button"
-    >
-      {children}
+    <div>
+      <style>{`
+        .input {
+          all: unset;
+        }
+      `}</style>
+      <div
+        onClick={onClick}
+        style={{ ...stylesheet.button(size), ...style }}
+        className="button"
+      >
+        {children}
+      </div>
     </div>
   );
 };

@@ -6,11 +6,10 @@ export const objectCSS: { [key: string]: CSSProperties } = {
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "space-between",
+    justifyContent: "space-around",
     width: "100vw",
     height: "10vh",
     backgroundColor: colors.accentBlue,
-    padding: "0 2.5vw 0 2.5vw",
   },
   title: {
     color: colors.white,

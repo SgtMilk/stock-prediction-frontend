@@ -8,6 +8,12 @@ export interface ConnectedStockViewProps {
   mode: number;
 }
 
+/**
+ * Connected to state version of the StockView component
+ * @param stockId (number, the stock id to get it from the state)
+ * @param mode (the number of stocks displayed on screen)
+ * @constructor
+ */
 export const ConnectedStockView: FC<ConnectedStockViewProps> = ({
   stockId,
   mode,
@@ -18,8 +24,23 @@ export const ConnectedStockView: FC<ConnectedStockViewProps> = ({
   );
 
   if (stock) {
+    let stockMode;
+    switch (stock.mode) {
+      case 1:
+        stockMode = "Daily";
+        break;
+      case 5:
+        stockMode = "Weekly";
+        break;
+      case 22:
+        stockMode = "Monthly";
+        break;
+      default:
+        stockMode = `${stock.mode} days`;
+        break;
+    }
     const props: StockViewProps = {
-      name: stock.name,
+      name: `${stock.name} - ${stockMode}`,
       graphData: stock.graphData,
       mode,
       unpin: () => dispatch(Stocks.actions.removeStock(stockId)),
