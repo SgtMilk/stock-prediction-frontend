@@ -28,6 +28,9 @@ export const Button: FC<ButtonProps> = ({
         .input {
           all: unset;
         }
+        .button:hover{
+          filter: brightness(1.5);
+        }
       `}</style>
       <div
         onClick={onClick}

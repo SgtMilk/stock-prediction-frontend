@@ -12,8 +12,10 @@ export const functionCSS: {
       flexDirection: "column",
       alignItems: "center",
       justifyContent: "center",
-      height: expanded ? "80vh" : `${90 / sqrt - (5 - sqrt)}vh`,
-      width: expanded ? "100vw" : `${100 / sqrt - (5 - sqrt)}vw`,
+      height: expanded ? `${80 - 2 * margin}vh` : `${90 / sqrt - 2 * margin}vh`,
+      width: expanded
+        ? `${100 - 2 * margin}vw`
+        : `${100 / sqrt - 2 * margin}vw`,
       margin: `${margin}vh ${margin}vw ${margin}vh ${margin}vw`,
       backgroundColor: colors.darkGrey,
       borderRadius: expanded ? "10vh" : `${10 / sqrt}vh`,

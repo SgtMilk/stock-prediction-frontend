@@ -55,7 +55,10 @@ export const Mainpage = (): ReactElement => {
           background: transparent;  /* Optional: just make scrollbar invisible */
       }
       `}</style>
-      <Titlebar />
+      <Titlebar
+        menuFunction={() => {}}
+        refreshFunction={() => setFetched(false)}
+      />
       <Portfolio stockIds={stockIds} style={mainpage.objectCSS.portfolio} />
     </div>
   );

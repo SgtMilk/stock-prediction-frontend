@@ -9,8 +9,11 @@ export default {
 export const Default = () => {
   return (
     <Titlebar
-      menuCallback={() => {
+      menuFunction={() => {
         console.log("menu function");
+      }}
+      refreshFunction={() => {
+        console.log("refresh function");
       }}
       style={{ width: "70vw" }}
     />

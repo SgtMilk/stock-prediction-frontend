@@ -51,14 +51,14 @@ export const SelectInput: FC<SelectInputProps> = ({
         name={name}
         id={name}
         className="input"
-        value={value === "" ? undefined : value}
+        value={value === "" ? "placeholder" : value}
       >
-        <option selected disabled style={stylesheet.option}>
+        <option disabled value="placeholder" style={stylesheet.option}>
           {placeholder ? placeholder : "Choose:"}
         </option>
         {choices
-          ? choices.map((choice) => (
-              <option value={choice} style={stylesheet.option}>
+          ? choices.map((choice, i) => (
+              <option value={choice} style={stylesheet.option} key={i}>
                 {choice}
               </option>
             ))

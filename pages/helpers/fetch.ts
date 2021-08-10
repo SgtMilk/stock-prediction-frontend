@@ -30,7 +30,7 @@ export const fetchStock = async (
       })
     );
   } catch (err) {
-    console.error(err);
+    console.error(`${err}`);
   }
 };
 
@@ -45,6 +45,6 @@ export const FetchPortfolios = async (dispatch: (...props: any) => any) => {
     dispatch(Stocks.actions.setStocks(stocks));
     stocks.forEach((stock) => fetchStock(stock, dispatch));
   } catch (err) {
-    console.error(err);
+    console.error(`${err}`);
   }
 };

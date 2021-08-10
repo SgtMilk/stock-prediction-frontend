@@ -41,6 +41,8 @@ export const StockView: FC<StockViewProps> = ({
 }): ReactElement => {
   const [expanded, setExpanded] = useState<boolean>(false);
 
+  if (!Array.isArray(graphData)) graphData = undefined;
+
   const renderGraph = graphData ? (
     <ResponsiveContainer height="100%" width="100%">
       <LineChart

@@ -34,8 +34,10 @@ export const Portfolio: FC<PortfolioProps> = ({
         />
       </div>
       <div style={objectCSS.box}>
-        {stockIds.map((id) => (
-          <ConnectedStockView stockId={id} mode={parseInt(mode)} />
+        {stockIds.map((id, i) => (
+          <div key={i}>
+            <ConnectedStockView stockId={id} mode={parseInt(mode)} />
+          </div>
         ))}
       </div>
     </div>
