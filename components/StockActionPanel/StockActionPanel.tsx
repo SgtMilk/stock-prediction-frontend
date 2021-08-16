@@ -6,11 +6,9 @@ import {
 } from "../../globalComponents/BaseInputTypes/FormInstance";
 import { Button } from "../../globalComponents";
 import { useDispatch, useSelector } from "react-redux";
-import { Stocks, Status, RootState, Portfolios } from "../../data";
-import axios from "axios";
+import { RootState } from "../../data";
+import { addStock } from "../../backendCalls";
 import { objectCSS } from "./stylesheet";
-
-const baseURL = "http://localhost:8000";
 
 export interface StockActionPanelProps {
   closeWindow: () => void;
@@ -34,33 +32,6 @@ export const StockActionPanel: FC<StockActionPanelProps> = ({
   // All the redux stuff
   const dispatch = useDispatch();
   const state = useSelector((state: RootState) => state);
-
-  /**
-   * Will do a call to the backend to create a stock to include in the selected portfolio.
-   */
-  const addStock = async () => {
-    if (mode < 1) {
-      console.error("impossible value for mode");
-      return;
-    }
-    try {
-      const response = await axios.post(
-        baseURL +
-          `/portfolios/${Status.selectors.getSelectedPortfolio(
-            state
-          )}/stocks/${name}/${mode}`
-      );
-      if (response.status === 200) {
-        const stocks: Stocks.Stock[] = response.data.stocks;
-        const portfolios: Portfolios.Portfolio[] = response.data.portfolios;
-        dispatch(Stocks.actions.setStocks(stocks));
-        dispatch(Portfolios.actions.setPortfolios(portfolios));
-        closeWindow();
-      }
-    } catch (e) {
-      console.error(e);
-    }
-  };
 
   // props to create the form instance
   const formProps: FormInstanceProps = {
@@ -91,7 +62,13 @@ export const StockActionPanel: FC<StockActionPanelProps> = ({
           Back
         </Button>
         <div style={{ width: "0.5rem" }} />
-        <Button onClick={addStock} size={1.5} style={objectCSS.button}>
+        <Button
+          onClick={async () => {
+            if (await addStock(name, mode, state, dispatch)) closeWindow();
+          }}
+          size={1.5}
+          style={objectCSS.button}
+        >
           Submit
         </Button>
       </div>

@@ -1,5 +1,4 @@
 import React from "react";
-import { Story } from "@storybook/react";
 import { StockView, StockViewProps } from "./StockView";
 import { ConnectedStockView } from "./ConnectedStockView";
 import { useDispatch, Provider } from "react-redux";
@@ -81,5 +80,5 @@ export const Connected = () => {
     ],
   };
   dispatch(Stocks.actions.addStock(stock));
-  return <ConnectedStockView mode={4} stockId={1} />;
+  return <ConnectedStockView mode={4} stockId={"1"} />;
 };

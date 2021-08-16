@@ -1,5 +1,5 @@
 import { CSSProperties } from "react";
-import { colors, fonts } from "../../style";
+import { colors, fonts } from "../../../style";
 
 export const functionCSS: {
   [key: string]: (...args: any) => CSSProperties;
@@ -7,19 +7,9 @@ export const functionCSS: {
 
 export const objectCSS: { [key: string]: CSSProperties } = {
   box: {
-    height: "100%",
-    width: "20vw",
-    backgroundColor: colors.lightGrey,
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-  },
-  subBox: {
     width: "15vw",
     height: "1rem",
     margin: "1vh 0 1vh 0",
-  },
-  textBox: {
     backgroundColor: colors.lightGrey,
     paddingTop: `0.75rem`,
     paddingBottom: `0.75rem`,
@@ -33,12 +23,5 @@ export const objectCSS: { [key: string]: CSSProperties } = {
     display: "inline-flex",
     flexDirection: "row",
     alignItems: "center",
-    height: "100%",
   },
 };
-
-export const portfolioSelectionHover = `
-.portfolioSelection:hover {
-    filter: brightness(1.5);
-}
-`;

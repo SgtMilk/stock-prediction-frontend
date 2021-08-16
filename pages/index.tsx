@@ -6,7 +6,7 @@ import {
   PortfolioSelector,
 } from "../components";
 import { mainpage } from "../style";
-import { FetchPortfolios } from "./helpers/fetch";
+import { getPortfolios } from "../backendCalls";
 import { Provider, useDispatch, useSelector } from "react-redux";
 import { Portfolios, createEmptyStore, RootState, Status } from "../data";
 
@@ -36,7 +36,7 @@ export const Mainpage = (): ReactElement => {
   const state = useSelector((state: RootState) => state);
 
   if (!fetched) {
-    FetchPortfolios(dispatch);
+    getPortfolios(dispatch);
     setFetched(true);
   }
 

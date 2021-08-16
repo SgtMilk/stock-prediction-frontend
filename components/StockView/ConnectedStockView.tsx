@@ -2,14 +2,12 @@ import React, { FC, ReactElement } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState, Status, Stocks } from "../../data";
 import { StockView, StockViewProps } from "./StockView";
-import axios from "axios";
+import { deleteStock } from "../../backendCalls";
 
 export interface ConnectedStockViewProps {
   stockId: string;
   mode: number;
 }
-
-const base_url = "http://localhost:8000";
 
 /**
  * Connected to state version of the StockView component
@@ -45,19 +43,7 @@ export const ConnectedStockView: FC<ConnectedStockViewProps> = ({
       name: `${stock.name} - ${stockMode}`,
       graphData: stock.graphData,
       mode,
-      unpin: async () => {
-        dispatch(Stocks.actions.removeStock(stockId));
-        try {
-          const response = await axios.delete(
-            base_url +
-              `/portfolios/${Status.selectors.getSelectedPortfolio(
-                state
-              )}/stocks/${stockId}`
-          );
-        } catch (e) {
-          console.error(e);
-        }
-      },
+      unpin: () => deleteStock(stockId, state, dispatch),
     };
     return <StockView {...props} />;
   } else return <div />;
