@@ -15,11 +15,12 @@ export const objectCSS: { [key: string]: CSSProperties } = {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    position: "absolute",
+    position: "fixed",
     zIndex: 5,
   },
   menu: {
     height: "100%",
+    minHeight: "90vh",
     width: "100vw",
     position: "absolute",
     zIndex: 5,
