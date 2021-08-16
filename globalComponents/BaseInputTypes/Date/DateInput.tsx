@@ -50,6 +50,8 @@ export const DateInput: FC<DateInputProps> = ({
         id={name}
         placeholder={placeholder}
         className="input"
+        value={value}
+        autoComplete="off"
       />
     </div>
   );

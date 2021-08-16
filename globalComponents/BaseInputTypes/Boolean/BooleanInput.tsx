@@ -49,6 +49,8 @@ export const BooleanInput: FC<BooleanInputProps> = ({
         name={name}
         id={name}
         placeholder={placeholder}
+        value={value}
+        autoComplete="off"
       />
       <label style={stylesheet.text}>{name}</label>
     </div>

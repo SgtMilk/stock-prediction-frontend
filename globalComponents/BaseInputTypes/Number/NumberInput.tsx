@@ -50,6 +50,8 @@ export const NumberInput: FC<NumberInputProps> = ({
         onChange={handleUpdate}
         placeholder={placeholder}
         className="input"
+        value={value}
+        autoComplete="off"
       />
     </div>
   );

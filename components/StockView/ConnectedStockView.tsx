@@ -1,12 +1,15 @@
 import React, { FC, ReactElement } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { RootState, Stocks } from "../../data";
+import { RootState, Status, Stocks } from "../../data";
 import { StockView, StockViewProps } from "./StockView";
+import axios from "axios";
 
 export interface ConnectedStockViewProps {
-  stockId: number;
+  stockId: string;
   mode: number;
 }
+
+const base_url = "http://localhost:8000";
 
 /**
  * Connected to state version of the StockView component
@@ -19,11 +22,8 @@ export const ConnectedStockView: FC<ConnectedStockViewProps> = ({
   mode,
 }): ReactElement => {
   const dispatch = useDispatch();
-  const stock = useSelector((state: RootState) =>
-    Stocks.selectors.selectById(state, stockId)
-  );
-
-  console.log(stock);
+  const state = useSelector((state: RootState) => state);
+  const stock = Stocks.selectors.selectById(state, stockId);
 
   if (stock) {
     let stockMode;
@@ -45,7 +45,19 @@ export const ConnectedStockView: FC<ConnectedStockViewProps> = ({
       name: `${stock.name} - ${stockMode}`,
       graphData: stock.graphData,
       mode,
-      unpin: () => dispatch(Stocks.actions.removeStock(stockId)),
+      unpin: async () => {
+        dispatch(Stocks.actions.removeStock(stockId));
+        try {
+          const response = await axios.delete(
+            base_url +
+              `/portfolios/${Status.selectors.getSelectedPortfolio(
+                state
+              )}/stocks/${stockId}`
+          );
+        } catch (e) {
+          console.error(e);
+        }
+      },
     };
     return <StockView {...props} />;
   } else return <div />;

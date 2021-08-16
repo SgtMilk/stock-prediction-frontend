@@ -11,10 +11,11 @@ export default {
 
 export const Default = () => {
   const dispatch = useDispatch();
-  const stocks = [
+  const stocks: Stocks.Stock[] = [
     {
       id: 1,
-      name: "AMZN - Weekly",
+      name: "AMZN",
+      mode: 3,
       graphData: [
         {
           date: "2021-07-27",
@@ -40,13 +41,15 @@ export const Default = () => {
     },
     {
       id: 2,
-      name: "AAPL - Monthly",
+      name: "AAPL",
+      mode: 3,
     },
     {
       id: 3,
-      name: "AAPL - Monthly",
+      name: "AAPL",
+      mode: 3,
     },
   ];
   dispatch(Stocks.actions.setStocks(stocks));
-  return <Portfolio stockIds={[1, 2, 3]} />;
+  return <Portfolio stockIds={["1", "2", "3"]} openAddStock={() => {}} />;
 };

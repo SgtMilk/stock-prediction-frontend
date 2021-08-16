@@ -54,6 +54,8 @@ export const EmailInput: FC<EmailInputProps> = ({
         id={name}
         placeholder={placeholder}
         className="input"
+        value={value}
+        autoComplete="off"
       />
       <div style={stylesheet.icon(size, errorMessage ? "limegreen" : "red")} />
     </div>

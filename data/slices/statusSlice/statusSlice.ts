@@ -2,26 +2,21 @@ import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../../rootReducer";
 
 export interface Status {
-  context: {};
-  selection: {};
+  selectedPortfolio: string;
 }
 
 const statusSlice = createSlice({
   name: "status",
-  initialState: { context: {}, selection: {} } as Status,
+  initialState: { selectedPortfolio: "" } as Status,
   reducers: {
-    setContext: (state, action) => {
-      state.context = action.payload;
-    },
-    setSelection: (state, action) => {
-      state.selection = action.payload;
+    setSelectedPorfolio: (state, action) => {
+      state.selectedPortfolio = action.payload;
     },
   },
 });
 
 export const statusReducer = statusSlice.reducer;
 export const selectors = {
-  getContext: (state: RootState) => state.status.context,
-  getSelection: (state: RootState) => state.status.selection,
+  getSelectedPortfolio: (state: RootState) => state.status.selectedPortfolio,
 };
 export const actions = statusSlice.actions;

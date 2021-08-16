@@ -56,31 +56,31 @@ export const FormInstance: FC<FormInstanceProps> = ({
         case TYPE.boolean:
           return (
             <div style={stylesheet.inputContainer(size)} key={index}>
-              <BooleanInput size={size} {...value} />
+              <BooleanInput size={size} {...value} style={style} />
             </div>
           );
         case TYPE.date:
           return (
             <div style={stylesheet.inputContainer(size)} key={index}>
-              <DateInput size={size} {...value} />
+              <DateInput size={size} {...value} style={style} />
             </div>
           );
         case TYPE.email:
           return (
             <div style={stylesheet.inputContainer(size)} key={index}>
-              <EmailInput size={size} {...value} />
+              <EmailInput size={size} {...value} style={style} />
             </div>
           );
         case TYPE.number:
           return (
             <div style={stylesheet.inputContainer(size)} key={index}>
-              <NumberInput size={size} {...value} />
+              <NumberInput size={size} {...value} style={style} />
             </div>
           );
         case TYPE.password:
           return (
             <div style={stylesheet.inputContainer(size)} key={index}>
-              <PasswordInput size={size} {...value} />
+              <PasswordInput size={size} {...value} style={style} />
             </div>
           );
         case TYPE.repeatedPassword:
@@ -94,6 +94,7 @@ export const FormInstance: FC<FormInstanceProps> = ({
                     value.value !== ""
                   }
                   {...value}
+                  style={style}
                 />
               </div>
             );
@@ -101,13 +102,13 @@ export const FormInstance: FC<FormInstanceProps> = ({
         case TYPE.select:
           return (
             <div style={stylesheet.inputContainer(size)} key={index}>
-              <SelectInput size={size} {...value} />
+              <SelectInput size={size} {...value} style={style} />
             </div>
           );
         case TYPE.string:
           return (
             <div style={stylesheet.inputContainer(size)} key={index}>
-              <StringInput size={size} {...value} />
+              <StringInput size={size} {...value} style={style} />
             </div>
           );
         default:
@@ -118,8 +119,9 @@ export const FormInstance: FC<FormInstanceProps> = ({
 
   return (
     <form
-      style={{ ...stylesheet.formContainer, ...style }}
+      style={{ ...stylesheet.formContainer }}
       onSubmit={(event) => event.preventDefault()}
+      autoComplete="off"
     >
       {DisplayForm({ values, size, style })}
     </form>

@@ -1,10 +1,13 @@
 import React, { FC, ReactElement, useState } from "react";
 import { ConnectedStockView } from "../StockView/ConnectedStockView";
-import { Input } from "../../globalComponents";
+import { Button, Input } from "../../globalComponents";
 import { objectCSS } from "./stylesheet";
+import { useSelector } from "react-redux";
+import { RootState, Status } from "../../data";
 
 export interface PortfolioProps {
-  stockIds: Array<number>;
+  stockIds: Array<string>;
+  openAddStock: () => void;
   style?: React.CSSProperties;
 }
 
@@ -16,6 +19,7 @@ export interface PortfolioProps {
  */
 export const Portfolio: FC<PortfolioProps> = ({
   stockIds,
+  openAddStock,
   style,
 }): ReactElement => {
   const [mode, setMode] = useState<string>("4");
@@ -25,14 +29,25 @@ export const Portfolio: FC<PortfolioProps> = ({
     value: mode,
     updateValue: setMode,
   };
+  const state = useSelector((state: RootState) => state);
   return (
     <div style={style}>
-      <div style={objectCSS.buttons}>
-        <Input.Select.SelectInput
-          {...modeProps}
-          style={{ width: "auto", height: "3vh" }}
-        />
-      </div>
+      {Status.selectors.getSelectedPortfolio(state) === "" ? null : (
+        <div style={objectCSS.buttons}>
+          <Input.Select.SelectInput
+            {...modeProps}
+            style={{ width: "auto", height: "1.5vh" }}
+          />
+          <div style={{ width: "0.5rem" }} />
+          <Button
+            onClick={openAddStock}
+            style={{ width: "auto", height: "1.5vh" }}
+          >
+            Add Stock
+          </Button>
+        </div>
+      )}
+
       <div style={objectCSS.box}>
         {stockIds.map((id, i) => (
           <div key={i}>

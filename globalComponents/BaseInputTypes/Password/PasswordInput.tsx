@@ -60,6 +60,8 @@ export const PasswordInput: FC<PasswordInputProps> = ({
         onChange={handleUpdate}
         placeholder={placeholder}
         className="input"
+        value={value}
+        autoComplete="off"
       />
       <div style={stylesheet.inlineFlex}>
         {color === undefined ? null : (
