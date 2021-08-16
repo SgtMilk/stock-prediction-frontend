@@ -1,20 +1,19 @@
 import { CSSProperties } from "react";
-import { colors } from "../../style";
-
-export const functionCSS: {
-  [key: string]: (...args: any) => CSSProperties;
-} = {};
+import { colors, flex } from "../../style";
 
 export const objectCSS: { [key: string]: CSSProperties } = {
+  box: {
+    width: "100vw",
+    minHeight: "100vh",
+    backgroundColor: colors.grey,
+  },
   portfolio: {
     backgroundColor: colors.grey,
   },
   panel: {
+    ...flex.centerFlex,
     height: "90vh",
     width: "100vw",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
     position: "fixed",
     zIndex: 5,
   },

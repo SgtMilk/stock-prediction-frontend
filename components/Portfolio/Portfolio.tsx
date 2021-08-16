@@ -1,6 +1,6 @@
 import React, { FC, ReactElement, useState } from "react";
 import { ConnectedStockView } from "../StockView/ConnectedStockView";
-import { Button, Input } from "../../globalComponents";
+import { Button, Input, Spacer } from "../../globalComponents";
 import { objectCSS } from "./stylesheet";
 import { useSelector } from "react-redux";
 import { RootState, Status } from "../../data";
@@ -34,17 +34,9 @@ export const Portfolio: FC<PortfolioProps> = ({
     <div style={style}>
       {Status.selectors.getSelectedPortfolio(state) === "" ? null : (
         <div style={objectCSS.buttons}>
-          <Input.Select.SelectInput
-            {...modeProps}
-            style={{ width: "auto", height: "1.5vh" }}
-          />
-          <div style={{ width: "0.5rem" }} />
-          <Button
-            onClick={openAddStock}
-            style={{ width: "auto", height: "1.5vh" }}
-          >
-            Add Stock
-          </Button>
+          <Input.Select.SelectInput {...modeProps} />
+          <Spacer />
+          <Button onClick={openAddStock}>Add Stock</Button>
         </div>
       )}
 

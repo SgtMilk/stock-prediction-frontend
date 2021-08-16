@@ -19,6 +19,7 @@ export const getPortfolios = async (
     const portfolioList = Object.values(portfolios);
     if (portfolioList[0])
       dispatch(Status.actions.setSelectedPorfolio(portfolioList[0].id));
+    else dispatch(Status.actions.setSelectedPorfolio(""));
     // stocks.forEach((stock) => fetchStock(stock, dispatch));  // TODO: fix stock prediction
     return true;
   } catch (err) {

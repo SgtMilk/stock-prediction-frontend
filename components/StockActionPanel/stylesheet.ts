@@ -1,32 +1,24 @@
 import { CSSProperties } from "react";
-import { colors } from "../../style";
+import { colors, flex } from "../../style";
 
-export const functionCSS: {
-  [key: string]: (...args: any) => CSSProperties;
-} = {};
+// Constants
+const formColor = colors.grey;
 
 export const objectCSS: { [key: string]: CSSProperties } = {
   box: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
+    ...flex.centerFlex,
     width: "50vw",
     height: "50vh",
     backgroundColor: colors.lightGrey,
     borderRadius: "5vh",
   },
+  form: {
+    backgroundColor: formColor,
+  },
   buttonBox: {
-    display: "inline-flex",
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
+    ...flex.centerInlineFlex,
   },
   button: {
-    height: "1.5rem",
-    backgroundColor: colors.grey,
-  },
-  form: {
-    backgroundColor: colors.grey,
+    backgroundColor: formColor,
   },
 };

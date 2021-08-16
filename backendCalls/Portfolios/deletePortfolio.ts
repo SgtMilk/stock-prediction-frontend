@@ -19,8 +19,12 @@ export const deletePortfolio = async (
     if (response.status === 200) {
       const portfolios: Portfolios.Portfolio[] = response.data.portfolios;
       dispatch(Portfolios.actions.setPortfolios(portfolios));
-      if (Status.selectors.getSelectedPortfolio(state) === id)
-        dispatch(Status.actions.setSelectedPorfolio(""));
+      if (Status.selectors.getSelectedPortfolio(state) === id) {
+        const portfolioList = Object.values(portfolios);
+        if (portfolioList[0])
+          dispatch(Status.actions.setSelectedPorfolio(portfolioList[0].id));
+        else dispatch(Status.actions.setSelectedPorfolio(""));
+      }
     }
     return true;
   } catch (e) {

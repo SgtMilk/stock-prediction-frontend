@@ -34,7 +34,7 @@ export const PortfolioBlock: FC<PortfolioBlockProps> = ({
           dispatch(Status.actions.setSelectedPorfolio(portfolio.id));
           closeMenu();
         }}
-        style={{ ...objectCSS.box, width: "95%" }}
+        style={objectCSS.portfolioSelect}
       >
         {portfolio.name}
       </div>
@@ -43,7 +43,7 @@ export const PortfolioBlock: FC<PortfolioBlockProps> = ({
         onClick={async () =>
           await deletePortfolio(portfolio.id, state, dispatch)
         }
-        style={{ ...objectCSS.box, width: "5%" }}
+        style={objectCSS.portfolioDelete}
       >
         x
       </div>

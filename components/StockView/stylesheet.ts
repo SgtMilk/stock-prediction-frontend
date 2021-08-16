@@ -1,5 +1,9 @@
 import { CSSProperties } from "react";
-import { colors } from "../../style";
+import { colors, flex } from "../../style";
+
+// Constants
+const textColor = colors.white;
+const transitionTime = "0.3s";
 
 export const functionCSS: {
   [key: string]: (...args: any) => CSSProperties;
@@ -8,50 +12,44 @@ export const functionCSS: {
     const sqrt = Math.sqrt(mode);
     const margin = (5 - sqrt) / 2;
     return {
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      justifyContent: "center",
+      ...flex.centerFlex,
       height: expanded ? `${80 - 2 * margin}vh` : `${90 / sqrt - 2 * margin}vh`,
       width: expanded
         ? `${100 - 2 * margin}vw`
         : `${100 / sqrt - 2 * margin}vw`,
+      borderRadius: expanded ? "10vh" : `${10 / sqrt}vh`,
       margin: `${margin}vh ${margin}vw ${margin}vh ${margin}vw`,
       backgroundColor: colors.darkGrey,
-      borderRadius: expanded ? "10vh" : `${10 / sqrt}vh`,
-      transition: "0.3s",
+      transition: transitionTime,
     };
   },
-  title: (expanded: boolean, mode: number) => ({
-    color: colors.white,
-    fontWeight: 600,
-    fontSize: expanded ? "3rem" : `${4 / Math.sqrt(mode)}rem`,
-    transition: "0.3s",
-  }),
-  text: (expanded: boolean, mode: number) => ({
-    color: colors.white,
-    fontWeight: 500,
-    fontSize: expanded ? "2rem" : `${3 / Math.sqrt(mode)}rem`,
-    transition: "0.3s",
-    paddingBottom: expanded ? "3rem" : `${4 / Math.sqrt(mode)}rem`,
-  }),
   titleBox: (expanded: boolean) => ({
+    ...flex.centerInlineFlex,
     height: "20%",
     width: "90%",
-    display: "flex",
-    alignItems: "center",
     justifyContent: expanded ? "space-between" : "center",
-    transition: "0.3s",
+    transition: transitionTime,
+  }),
+  title: (expanded: boolean, mode: number) => ({
+    color: textColor,
+    fontWeight: 600,
+    fontSize: expanded ? "3rem" : `${4 / Math.sqrt(mode)}rem`,
+    transition: transitionTime,
+  }),
+  text: (expanded: boolean, mode: number) => ({
+    color: textColor,
+    fontWeight: 500,
+    fontSize: expanded ? "2rem" : `${3 / Math.sqrt(mode)}rem`,
+    transition: transitionTime,
+    paddingBottom: expanded ? "3rem" : `${4 / Math.sqrt(mode)}rem`,
   }),
 };
 
 export const objectCSS: { [key: string]: CSSProperties } = {
   graphBox: {
+    ...flex.centerFlex,
     height: "80%",
     width: "90%",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
     transition: "0.3s",
   },
   button: {

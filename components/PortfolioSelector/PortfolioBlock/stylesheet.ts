@@ -1,27 +1,38 @@
 import { CSSProperties } from "react";
-import { colors, fonts } from "../../../style";
+import { colors, fonts, flex } from "../../../style";
 
-export const functionCSS: {
-  [key: string]: (...args: any) => CSSProperties;
-} = {};
+const commonBoxAttributes: CSSProperties = {
+  ...flex.inlineFlex,
+  alignItems: "center",
+  backgroundColor: colors.lightGrey,
+  paddingTop: `0.75rem`,
+  paddingBottom: `0.75rem`,
+  borderRadius: `0.5rem`,
+};
+
+const commonActionAttributes: CSSProperties = {
+  ...commonBoxAttributes,
+  height: "1rem",
+  paddingRight: `1.5rem`,
+  paddingLeft: `1.5rem`,
+  // font stuff
+  color: colors.white,
+  fontFamily: fonts.main,
+  fontWeight: 600,
+  fontSize: `1rem`,
+};
 
 export const objectCSS: { [key: string]: CSSProperties } = {
   box: {
-    width: "15vw",
-    height: "1rem",
-    margin: "1vh 0 1vh 0",
-    backgroundColor: colors.lightGrey,
-    paddingTop: `0.75rem`,
-    paddingBottom: `0.75rem`,
-    borderRadius: `0.5rem`,
-    fontSize: `1rem`,
-    paddingRight: `1.5rem`,
-    paddingLeft: `1.5rem`,
-    color: colors.white,
-    fontFamily: fonts.main,
-    fontWeight: 600,
-    display: "inline-flex",
-    flexDirection: "row",
-    alignItems: "center",
+    width: "17.5vw",
+    ...commonBoxAttributes,
+  },
+  portfolioSelect: {
+    width: "95%",
+    ...commonActionAttributes,
+  },
+  portfolioDelete: {
+    width: "5%",
+    ...commonActionAttributes,
   },
 };

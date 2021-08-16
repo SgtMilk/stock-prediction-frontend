@@ -48,29 +48,19 @@ export const Mainpage = (): ReactElement => {
   if (!stockIds) stockIds = [];
 
   return (
-    <div
-      style={{
-        width: "100vw",
-        minHeight: "100vh",
-        ...mainpage.objectCSS.portfolio,
-      }}
-    >
+    <div style={mainpage.objectCSS.box}>
       <style>{mainpage.pageCSS}</style>
       <Titlebar
         menuFunction={() => {
           setMenuOpened(!menuOpened);
           setPanelOpened(false);
         }}
-        style={{ position: "absolute" }}
         refreshFunction={() => setFetched(false)}
       />
       <div style={mainpage.objectCSS.mainpage}>
         {menuOpened ? (
           <div style={mainpage.objectCSS.menu}>
-            <PortfolioSelector
-              closeMenu={() => setMenuOpened(false)}
-              style={{ position: "absolute" }}
-            />
+            <PortfolioSelector closeMenu={() => setMenuOpened(false)} />
           </div>
         ) : null}
         {panelOpened ? (

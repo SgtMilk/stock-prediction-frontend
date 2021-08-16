@@ -4,7 +4,7 @@ import {
   FormInstanceProps,
   TYPE,
 } from "../../globalComponents/BaseInputTypes/FormInstance";
-import { Button } from "../../globalComponents";
+import { Button, Spacer } from "../../globalComponents";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../data";
 import { addStock } from "../../backendCalls";
@@ -61,7 +61,7 @@ export const StockActionPanel: FC<StockActionPanelProps> = ({
         <Button onClick={closeWindow} size={1.5} style={objectCSS.button}>
           Back
         </Button>
-        <div style={{ width: "0.5rem" }} />
+        <Spacer />
         <Button
           onClick={async () => {
             if (await addStock(name, mode, state, dispatch)) closeWindow();

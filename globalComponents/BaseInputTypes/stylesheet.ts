@@ -1,19 +1,5 @@
 import React from "react";
-import { colors, fonts } from "../../style";
-
-const flex: React.CSSProperties = {
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-  justifyContent: "center",
-};
-
-const inlineFlex: React.CSSProperties = {
-  display: "inline-flex",
-  flexDirection: "row",
-  alignItems: "center",
-  height: "100%",
-};
+import { colors, fonts, flex } from "../../style";
 
 const text: React.CSSProperties = {
   color: colors.white,
@@ -23,7 +9,7 @@ const text: React.CSSProperties = {
 
 const formContainer: React.CSSProperties = {
   width: "20rem",
-  ...flex,
+  ...flex.centerFlex,
 };
 
 const option: React.CSSProperties = {
@@ -35,14 +21,12 @@ const inputContainer = (size: number): React.CSSProperties => {
   return {
     marginTop: `${size}rem`,
     marginBottom: `${size}rem`,
-    width: "100%",
-    ...flex,
+    ...flex.centerFlex,
   };
 };
 
 const inputBox = (size: number): React.CSSProperties => {
   return {
-    width: "100%",
     backgroundColor: colors.lightGrey,
     paddingTop: `${size * 0.75}rem`,
     paddingBottom: `${size * 0.75}rem`,
@@ -51,7 +35,7 @@ const inputBox = (size: number): React.CSSProperties => {
     paddingRight: `${size * 1.5}rem`,
     paddingLeft: `${size * 1.5}rem`,
     ...text,
-    ...inlineFlex,
+    ...flex.centerInlineFlex,
   };
 };
 
@@ -88,8 +72,8 @@ const focus = (element: HTMLElement) => {
 };
 
 export default {
-  flex,
-  inlineFlex,
+  flex: flex.flex,
+  inlineFlex: flex.centerInlineFlex,
   text,
   formContainer,
   option,
