@@ -2,7 +2,7 @@ import React from "react";
 import { StockView, StockViewProps } from "./StockView";
 import { ConnectedStockView } from "./ConnectedStockView";
 import { useDispatch, Provider } from "react-redux";
-import { Stocks, StorybookDecorator } from "../../data";
+import { Stocks, StorybookDecorator } from "data";
 
 export default {
   title: "Page Components/StockView",

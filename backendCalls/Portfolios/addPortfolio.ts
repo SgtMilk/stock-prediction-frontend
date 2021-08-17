@@ -1,5 +1,5 @@
-import { Portfolios } from "../../data";
-import { baseURL } from "..";
+import { Portfolios } from "data";
+import { baseURL } from "backendCalls";
 import axios from "axios";
 
 /**

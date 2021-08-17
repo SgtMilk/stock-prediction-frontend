@@ -1,5 +1,5 @@
-import { Portfolios, RootState, Status } from "../../data";
-import { baseURL } from "..";
+import { Portfolios, RootState, Status } from "data";
+import { baseURL } from "backendCalls";
 import axios from "axios";
 
 /**
@@ -18,7 +18,9 @@ export const deletePortfolio = async (
     const response = await axios.delete(baseURL + `/portfolios/${id}`);
     if (response.status === 200) {
       const portfolios: Portfolios.Portfolio[] = response.data.portfolios;
-      dispatch(Portfolios.actions.setPortfolios(portfolios));
+
+      // removing that portfolio in our local state
+      dispatch(Portfolios.actions.removePortfolio(id));
       if (Status.selectors.getSelectedPortfolio(state) === id) {
         const portfolioList = Object.values(portfolios);
         if (portfolioList[0])

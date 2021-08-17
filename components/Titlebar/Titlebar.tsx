@@ -1,6 +1,6 @@
 import React, { FC, ReactElement } from "react";
 import { objectCSS } from "./stylesheet";
-import { Display, Button } from "../../globalComponents";
+import { Display, Button } from "globalComponents";
 
 export interface TitlebarProps {
   menuFunction: () => void;

@@ -1,4 +1,4 @@
-import { StorybookDecorator } from "../../data";
+import { StorybookDecorator } from "data";
 import React from "react";
 import { StockActionPanel } from "./StockActionPanel";
 

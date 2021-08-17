@@ -1,8 +1,8 @@
 import React, { FC, ReactElement } from "react";
 import { objectCSS } from "./stylesheet";
 import { useDispatch, useSelector } from "react-redux";
-import { Portfolios, RootState, Status } from "../../../data";
-import { deletePortfolio } from "../../../backendCalls";
+import { Portfolios, RootState, Status } from "data";
+import { deletePortfolio } from "backendCalls";
 
 export interface PortfolioBlockProps {
   portfolio: Portfolios.Portfolio;

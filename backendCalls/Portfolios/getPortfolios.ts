@@ -1,6 +1,6 @@
 import axios from "axios";
-import { Portfolios, Stocks, Status } from "../../data";
-import { baseURL } from "..";
+import { Portfolios, Stocks, Status } from "data";
+import { baseURL } from "backendCalls";
 
 /**
  * Gets all the portfolios and stocks from the backend
@@ -12,15 +12,15 @@ export const getPortfolios = async (
 ): Promise<boolean | undefined> => {
   try {
     const response = await axios.get(baseURL + "/portfolios");
-    const portfolios: Portfolios.Portfolio[] = response.data.portfolios;
-    const stocks: Stocks.Stock[] = response.data.stocks;
-    dispatch(Stocks.actions.setStocks(stocks));
+    const portfolios: Portfolios.Portfolio[] = Object.values(
+      response.data.portfolios
+    );
+    const stocks: Stocks.Stock[] = Object.values(response.data.stocks);
+    Stocks.actions.SET_STOCKS(stocks, dispatch);
     dispatch(Portfolios.actions.setPortfolios(portfolios));
-    const portfolioList = Object.values(portfolios);
-    if (portfolioList[0])
-      dispatch(Status.actions.setSelectedPorfolio(portfolioList[0].id));
+    if (portfolios[0])
+      dispatch(Status.actions.setSelectedPorfolio(portfolios[0].id));
     else dispatch(Status.actions.setSelectedPorfolio(""));
-    // stocks.forEach((stock) => fetchStock(stock, dispatch));  // TODO: fix stock prediction
     return true;
   } catch (err) {
     console.error(`${err}`);

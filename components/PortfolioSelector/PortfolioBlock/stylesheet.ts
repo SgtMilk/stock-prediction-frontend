@@ -1,5 +1,5 @@
 import { CSSProperties } from "react";
-import { colors, fonts, flex } from "../../../style";
+import { colors, fonts, flex } from "style";
 
 const commonBoxAttributes: CSSProperties = {
   ...flex.inlineFlex,

@@ -1,5 +1,5 @@
 import { CSSProperties } from "react";
-import { flex } from "../../style";
+import { flex } from "style";
 
 export const objectCSS: { [key: string]: CSSProperties } = {
   box: {

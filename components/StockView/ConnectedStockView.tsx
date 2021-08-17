@@ -1,8 +1,8 @@
 import React, { FC, ReactElement } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { RootState, Status, Stocks } from "../../data";
+import { RootState, Stocks } from "data";
 import { StockView, StockViewProps } from "./StockView";
-import { deleteStock } from "../../backendCalls";
+import { deleteStock } from "backendCalls";
 
 export interface ConnectedStockViewProps {
   stockId: string;

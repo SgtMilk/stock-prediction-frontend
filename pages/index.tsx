@@ -36,8 +36,8 @@ export const Mainpage = (): ReactElement => {
   const state = useSelector((state: RootState) => state);
 
   if (!fetched) {
-    getPortfolios(dispatch);
     setFetched(true);
+    getPortfolios(dispatch);
   }
 
   const selectedPortfolio = Portfolios.selectors.selectById(

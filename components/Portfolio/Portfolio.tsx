@@ -1,9 +1,9 @@
 import React, { FC, ReactElement, useState } from "react";
 import { ConnectedStockView } from "../StockView/ConnectedStockView";
-import { Button, Input, Spacer } from "../../globalComponents";
+import { Button, Input, Spacer } from "globalComponents";
 import { objectCSS } from "./stylesheet";
 import { useSelector } from "react-redux";
-import { RootState, Status } from "../../data";
+import { RootState, Status } from "data";
 
 export interface PortfolioProps {
   stockIds: Array<string>;

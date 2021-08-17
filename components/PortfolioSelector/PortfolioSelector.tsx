@@ -1,9 +1,9 @@
 import React, { FC, ReactElement, useState } from "react";
-import { Button, Input } from "../../globalComponents";
+import { Button, Input } from "globalComponents";
 import { useSelector, useDispatch } from "react-redux";
-import { RootState, Portfolios } from "../../data";
+import { RootState, Portfolios } from "data";
 import { objectCSS, portfolioSelectionHover } from "./stylesheet";
-import { addPortfolio } from "../../backendCalls";
+import { addPortfolio } from "backendCalls";
 import { PortfolioBlock } from "./PortfolioBlock/PortfolioBlock";
 
 export interface PortfolioSelectorProps {
@@ -27,9 +27,8 @@ export const PortfolioSelector: FC<PortfolioSelectorProps> = ({
   // All the redux stuff
   const dispatch = useDispatch();
   const state = useSelector((state: RootState) => state);
-  const portfolios: Portfolios.Portfolio[] = Portfolios.selectors.selectAll(
-    state
-  );
+  const portfolios: Portfolios.Portfolio[] =
+    Portfolios.selectors.selectAll(state);
 
   return (
     <div style={{ ...objectCSS.box, ...style }}>

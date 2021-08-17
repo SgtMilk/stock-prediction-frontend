@@ -1,5 +1,5 @@
 import { CSSProperties } from "react";
-import { colors, flex } from "../../style";
+import { colors, flex } from "style";
 
 // Constants
 const formColor = colors.grey;

@@ -1,6 +1,6 @@
-import { RootState, Stocks, Status } from "../../data";
+import { RootState, Status, Portfolios } from "data";
 import axios from "axios";
-import { baseURL } from "..";
+import { baseURL } from "backendCalls";
 
 /**
  * Call to backend to delete a stock
@@ -14,7 +14,6 @@ export const deleteStock = async (
   state: RootState,
   dispatch: (...args: any) => any
 ): Promise<boolean | undefined> => {
-  dispatch(Stocks.actions.removeStock(stockId));
   try {
     const response = await axios.delete(
       baseURL +
@@ -22,6 +21,10 @@ export const deleteStock = async (
           state
         )}/stocks/${stockId}`
     );
+    if (response.status === 200) {
+      const portfolios: Portfolios.Portfolio[] = response.data.portfolios;
+      dispatch(Portfolios.actions.setPortfolios(portfolios));
+    }
     return true;
   } catch (e) {
     console.error(e);

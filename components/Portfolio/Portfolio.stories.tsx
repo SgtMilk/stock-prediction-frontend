@@ -1,4 +1,4 @@
-import { Stocks, StorybookDecorator } from "../../data";
+import { Stocks, StorybookDecorator } from "data";
 import React from "react";
 import { Portfolio } from "./Portfolio";
 import { useDispatch } from "react-redux";

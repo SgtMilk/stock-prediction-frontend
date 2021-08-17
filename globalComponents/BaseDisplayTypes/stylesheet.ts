@@ -1,5 +1,5 @@
 import { CSSProperties } from "react";
-import { fonts } from "../../style";
+import { fonts } from "style";
 
 export const objectCSS: { [key: string]: CSSProperties } = {
   padding: {

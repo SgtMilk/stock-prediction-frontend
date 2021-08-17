@@ -1,6 +1,6 @@
 import axios from "axios";
-import { baseURL } from "..";
-import { Stocks } from "../../data";
+import { baseURL } from "backendCalls";
+import { Stocks } from "data";
 
 interface graphData {
   date: string;

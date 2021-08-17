@@ -1,6 +1,6 @@
-import { Stocks, Portfolios, Status, RootState } from "../../data";
+import { Stocks, Portfolios, Status, RootState } from "data";
 import axios from "axios";
-import { baseURL } from "..";
+import { baseURL } from "backendCalls";
 
 /**
  * Will do a call to the backend to create a stock to include in the selected portfolio.
@@ -28,9 +28,15 @@ export const addStock = async (
         )}/stocks/${name}/${mode}`
     );
     if (response.status === 200) {
-      const stocks: Stocks.Stock[] = response.data.stocks;
-      const portfolios: Portfolios.Portfolio[] = response.data.portfolios;
-      dispatch(Stocks.actions.setStocks(stocks));
+      const stocks: Stocks.Stock[] = Object.values(response.data.stocks);
+      const curStocks = Stocks.selectors.selectAll(state);
+      stocks.forEach((stock) => {
+        if (!curStocks.includes(stock))
+          Stocks.actions.ADD_STOCK(stock, state, dispatch);
+      });
+      const portfolios: Portfolios.Portfolio[] = Object.values(
+        response.data.portfolios
+      );
       dispatch(Portfolios.actions.setPortfolios(portfolios));
       return true;
     }

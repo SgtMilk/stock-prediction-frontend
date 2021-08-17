@@ -3,11 +3,11 @@ import {
   FormInstance,
   FormInstanceProps,
   TYPE,
-} from "../../globalComponents/BaseInputTypes/FormInstance";
-import { Button, Spacer } from "../../globalComponents";
+} from "globalComponents/BaseInputTypes/FormInstance";
+import { Button, Spacer } from "globalComponents";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../data";
-import { addStock } from "../../backendCalls";
+import { RootState } from "data";
+import { addStock } from "backendCalls";
 import { objectCSS } from "./stylesheet";
 
 export interface StockActionPanelProps {
