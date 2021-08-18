@@ -1,6 +1,7 @@
 import { Stocks, Portfolios, Status, RootState } from "data";
 import axios from "axios";
 import { baseURL } from "backendCalls";
+import { predictStock } from "backendCalls";
 
 /**
  * Will do a call to the backend to create a stock to include in the selected portfolio.
@@ -15,10 +16,23 @@ export const addStock = async (
   mode: number,
   state: RootState,
   dispatch: (...props: any) => any
-): Promise<boolean | undefined> => {
+) => {
+  const response = await addBackend(name, mode, state, dispatch);
+  if (response) {
+    trainStock(response, dispatch);
+    return true;
+  }
+};
+
+const addBackend = async (
+  name: string,
+  mode: number,
+  state: RootState,
+  dispatch: (...props: any) => any
+): Promise<Stocks.Stock | undefined> => {
   if (mode < 1) {
     console.error("impossible value for mode");
-    return false;
+    return undefined;
   }
   try {
     const response = await axios.post(
@@ -28,20 +42,23 @@ export const addStock = async (
         )}/stocks/${name}/${mode}`
     );
     if (response.status === 200) {
-      const stocks: Stocks.Stock[] = Object.values(response.data.stocks);
-      const curStocks = Stocks.selectors.selectAll(state);
-      stocks.forEach((stock) => {
-        if (!curStocks.includes(stock))
-          Stocks.actions.ADD_STOCK(stock, state, dispatch);
-      });
+      const new_stock: Stocks.Stock = response.data.new_stock;
       const portfolios: Portfolios.Portfolio[] = Object.values(
         response.data.portfolios
       );
       dispatch(Portfolios.actions.setPortfolios(portfolios));
-      return true;
+      dispatch(Stocks.actions.addStock(new_stock));
+      return new_stock;
     }
   } catch (e) {
     console.error(e);
-    return false;
+    return undefined;
   }
+};
+
+const trainStock = (
+  new_stock: Stocks.Stock,
+  dispatch: (...props: any) => any
+) => {
+  predictStock(new_stock, dispatch);
 };
