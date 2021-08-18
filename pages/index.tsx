@@ -37,7 +37,7 @@ export const Mainpage = (): ReactElement => {
 
   if (!fetched) {
     setFetched(true);
-    getPortfolios(state, dispatch);
+    if (typeof window !== "undefined") getPortfolios(state, dispatch);
   }
 
   const selectedPortfolio = Portfolios.selectors.selectById(
