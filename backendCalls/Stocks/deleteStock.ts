@@ -14,6 +14,7 @@ export const deleteStock = async (
   state: RootState,
   dispatch: (...args: any) => any
 ): Promise<boolean | undefined> => {
+  if (typeof window === "undefined") return false;
   try {
     const response = await axios.delete(
       baseURL +

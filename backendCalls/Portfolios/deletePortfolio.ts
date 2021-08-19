@@ -14,6 +14,7 @@ export const deletePortfolio = async (
   state: RootState,
   dispatch: (...props: any) => any
 ): Promise<boolean | undefined> => {
+  if (typeof window === "undefined") return false;
   try {
     const response = await axios.delete(baseURL + `/portfolios/${id}`);
     if (response.status === 200) {

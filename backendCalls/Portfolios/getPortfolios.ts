@@ -12,6 +12,7 @@ export const getPortfolios = async (
   state: RootState,
   dispatch: (...props: any) => any
 ): Promise<boolean | undefined> => {
+  if (typeof window === "undefined") return false;
   const response = await getBackend(state, dispatch);
   if (response) {
     trainBackend(response, dispatch);

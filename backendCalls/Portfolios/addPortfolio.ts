@@ -12,6 +12,7 @@ export const addPortfolio = async (
   name: string,
   dispatch: (...props: any) => any
 ): Promise<boolean | undefined> => {
+  if (typeof window === "undefined") return false;
   if (name === "") {
     console.error("No Input");
     return false;

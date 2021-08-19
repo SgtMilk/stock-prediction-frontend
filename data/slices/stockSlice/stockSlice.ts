@@ -1,6 +1,5 @@
 import { createSlice, createEntityAdapter } from "@reduxjs/toolkit";
 import { RootState } from "../../rootReducer";
-import { predictStock } from "../../../backendCalls";
 
 export interface Stock {
   id: number;

@@ -17,6 +17,7 @@ export const addStock = async (
   state: RootState,
   dispatch: (...props: any) => any
 ) => {
+  if (typeof window === "undefined") return false;
   const response = await addBackend(name, mode, state, dispatch);
   if (response) {
     trainStock(response, dispatch);

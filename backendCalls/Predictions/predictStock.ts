@@ -17,6 +17,7 @@ export const predictStock = async (
   stock: Stocks.Stock,
   dispatch: (...props: any) => any
 ): Promise<boolean | undefined> => {
+  if (typeof window === "undefined") return false;
   try {
     const response = await axios.get(
       baseURL + `/predict/${stock.name}/${stock.mode}`
