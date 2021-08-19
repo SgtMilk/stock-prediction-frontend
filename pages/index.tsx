@@ -5,10 +5,10 @@ import {
   StockActionPanel,
   PortfolioSelector,
 } from "../components";
-import { mainpage } from "../style";
-import { getPortfolios } from "../backendCalls";
+import { mainpage, animations } from "style";
+import { getPortfolios } from "backendCalls";
 import { Provider, useDispatch, useSelector } from "react-redux";
-import { Portfolios, createEmptyStore, RootState, Status } from "../data";
+import { Portfolios, createEmptyStore, RootState, Status } from "data";
 
 /**
  * This is the "/" page in the router.
@@ -29,16 +29,14 @@ const index = (): ReactElement => {
  * @constructor
  */
 export const Mainpage = (): ReactElement => {
+  // state stuff
   const dispatch = useDispatch();
   const [fetched, setFetched] = useState<boolean>(false);
   const [panelOpened, setPanelOpened] = useState<boolean>(false);
+  const [panelAnimation, setPanelAnimation] = useState<boolean>(false);
   const [menuOpened, setMenuOpened] = useState<boolean>(false);
+  const [menuAnimation, setMenuAnimation] = useState<boolean>(false);
   const state = useSelector((state: RootState) => state);
-
-  if (!fetched) {
-    setFetched(true);
-    getPortfolios(state, dispatch);
-  }
 
   const selectedPortfolio = Portfolios.selectors.selectById(
     state,
@@ -47,26 +45,48 @@ export const Mainpage = (): ReactElement => {
   let stockIds = selectedPortfolio?.stocks;
   if (!stockIds) stockIds = [];
 
+  // getting information from backend
+  if (!fetched) {
+    setFetched(true);
+    getPortfolios(state, dispatch);
+  }
+
+  // all the animation stuff
+  if (!panelAnimation)
+    setTimeout(function () {
+      setPanelOpened(false);
+    }, animations.animationTime * 1000);
+
+  if (!menuAnimation)
+    setTimeout(function () {
+      setMenuOpened(false);
+    }, animations.animationTime * 1000);
+
   return (
     <div style={mainpage.objectCSS.box}>
       <style>{mainpage.pageCSS}</style>
       <Titlebar
         menuFunction={() => {
-          setMenuOpened(!menuOpened);
-          setPanelOpened(false);
+          setMenuAnimation(!menuOpened);
+          if (!menuAnimation) setMenuOpened(true);
+          setPanelAnimation(false);
         }}
         refreshFunction={() => setFetched(false)}
       />
       <div style={mainpage.objectCSS.mainpage}>
         {menuOpened ? (
           <div style={mainpage.objectCSS.menu}>
-            <PortfolioSelector closeMenu={() => setMenuOpened(false)} />
+            <PortfolioSelector
+              animationState={menuAnimation}
+              closeMenu={() => setMenuAnimation(false)}
+            />
           </div>
         ) : null}
         {panelOpened ? (
           <div style={mainpage.objectCSS.panel}>
             <StockActionPanel
-              closeWindow={() => setPanelOpened(false)}
+              animationState={panelAnimation}
+              closeWindow={() => setPanelAnimation(false)}
               style={{ position: "absolute" }}
             />
           </div>
@@ -74,7 +94,10 @@ export const Mainpage = (): ReactElement => {
         <Portfolio
           stockIds={stockIds}
           style={mainpage.objectCSS.portfolio}
-          openAddStock={() => setPanelOpened(!panelOpened)}
+          openAddStock={() => {
+            setPanelAnimation(!panelOpened);
+            if (!panelAnimation) setPanelOpened(true);
+          }}
         />
       </div>
     </div>

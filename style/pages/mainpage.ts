@@ -1,5 +1,5 @@
 import { CSSProperties } from "react";
-import { colors, flex } from "../../style";
+import { colors, flex, animations } from "../../style";
 
 export const objectCSS: { [key: string]: CSSProperties } = {
   box: {
@@ -47,4 +47,6 @@ body {
   width: 0;  /* Remove scrollbar space */
   background: transparent;  /* Optional: just make scrollbar invisible */
 }
+${animations.fadeIn}
+${animations.fadeOut}
 `;

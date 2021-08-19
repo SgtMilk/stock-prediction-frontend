@@ -8,9 +8,10 @@ import { Button, Spacer } from "globalComponents";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "data";
 import { addStock } from "backendCalls";
-import { objectCSS } from "./stylesheet";
+import { objectCSS, functionCSS } from "./stylesheet";
 
 export interface StockActionPanelProps {
+  animationState: boolean;
   closeWindow: () => void;
   style?: React.CSSProperties;
 }
@@ -22,6 +23,7 @@ export interface StockActionPanelProps {
  * @constructor
  */
 export const StockActionPanel: FC<StockActionPanelProps> = ({
+  animationState,
   closeWindow,
   style = {},
 }): ReactElement => {
@@ -55,7 +57,7 @@ export const StockActionPanel: FC<StockActionPanelProps> = ({
   };
 
   return (
-    <div style={{ ...style, ...objectCSS.box }}>
+    <div style={{ ...functionCSS.box(animationState), ...style }}>
       <FormInstance {...formProps} style={objectCSS.form} />
       <div style={objectCSS.buttonBox}>
         <Button onClick={closeWindow} size={1.5} style={objectCSS.button}>

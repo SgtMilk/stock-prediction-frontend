@@ -1,17 +1,10 @@
 import { CSSProperties } from "react";
-import { colors, flex } from "style";
+import { colors, flex, animations } from "style";
 
 // Constants
 const formColor = colors.grey;
 
 export const objectCSS: { [key: string]: CSSProperties } = {
-  box: {
-    ...flex.centerFlex,
-    width: "50vw",
-    height: "50vh",
-    backgroundColor: colors.lightGrey,
-    borderRadius: "5vh",
-  },
   form: {
     backgroundColor: formColor,
   },
@@ -21,4 +14,17 @@ export const objectCSS: { [key: string]: CSSProperties } = {
   button: {
     backgroundColor: formColor,
   },
+};
+
+export const functionCSS: { [key: string]: (...args: any) => CSSProperties } = {
+  box: (animationState: boolean) => ({
+    ...flex.centerFlex,
+    width: "50vw",
+    height: "50vh",
+    backgroundColor: colors.lightGrey,
+    borderRadius: "5vh",
+    animation: animationState
+      ? `fadeIn ${animations.animationTime}s`
+      : `fadeOut ${animations.animationTime}s`,
+  }),
 };
