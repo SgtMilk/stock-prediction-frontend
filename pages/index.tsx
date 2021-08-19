@@ -66,11 +66,18 @@ export const Mainpage = (): ReactElement => {
     <div style={mainpage.objectCSS.box}>
       <style>{mainpage.pageCSS}</style>
       <Titlebar
-        menuFunction={() => {
-          setMenuAnimation(!menuOpened);
-          if (!menuAnimation) setMenuOpened(true);
-          setPanelAnimation(false);
-        }}
+        menuFunction={
+          menuOpened === menuAnimation
+            ? () => {
+                console.log("triggered");
+                setMenuAnimation(!menuOpened);
+                if (!menuAnimation) setMenuOpened(true);
+              }
+            : () => {
+                setMenuAnimation(false);
+                if (!menuAnimation) setMenuOpened(false);
+              }
+        }
         refreshFunction={() => setFetched(false)}
       />
       <div style={mainpage.objectCSS.mainpage}>
@@ -94,10 +101,17 @@ export const Mainpage = (): ReactElement => {
         <Portfolio
           stockIds={stockIds}
           style={mainpage.objectCSS.portfolio}
-          openAddStock={() => {
-            setPanelAnimation(!panelOpened);
-            if (!panelAnimation) setPanelOpened(true);
-          }}
+          openAddStock={
+            panelOpened === panelAnimation
+              ? () => {
+                  setPanelAnimation(!panelOpened);
+                  if (!panelAnimation) setPanelOpened(true);
+                }
+              : () => {
+                  setPanelOpened(false);
+                  setPanelAnimation(false);
+                }
+          }
         />
       </div>
     </div>

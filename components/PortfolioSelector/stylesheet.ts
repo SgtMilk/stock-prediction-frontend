@@ -31,21 +31,25 @@ export const functionCSS: {
   }),
 };
 
-const delayedFade = `
+const componentAnimations = `
 @keyframes delayedFadeIn{
   0%  {opacity: 0;}
   50%   { opacity: 0; }
   100% { opacity: 1; }
 }
-@keyframes delayedSlideOut{
-  0%   { width: ${boxWidth}; }
-  50%   { width: ${boxWidth}; }
-  100% { width: 0; }
-}
 @keyframes delayedFadeOut{
   0%   { opacity: 1; }
   50%   { opacity: 0; }
   100% { opacity: 0; }
+}
+@keyframes slideIn{
+  0%   { width: 0; }
+  100% { width: ${boxWidth}; }
+}
+@keyframes delayedSlideOut{
+  0%   { width: ${boxWidth}; }
+  50%   { width: ${boxWidth}; }
+  100% { width: 0; }
 }
 `;
 
@@ -53,6 +57,5 @@ export const portfolioSelectorCSS = `
 .portfolioSelection:hover {
     filter: brightness(1.5);
 }
-${animations.slideIn(boxWidth)}
-${delayedFade}
+${componentAnimations}
 `;
