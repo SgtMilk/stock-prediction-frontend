@@ -1,10 +1,5 @@
 import React, { FC, ReactElement, useState } from "react";
-import {
-  FormInstance,
-  FormInstanceProps,
-  TYPE,
-} from "globalComponents/BaseInputTypes/FormInstance";
-import { Button, Spacer } from "globalComponents";
+import { Button, Spacer, Input } from "sgtmilk-global-components";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "data";
 import { addStock } from "backendCalls";
@@ -36,19 +31,19 @@ export const StockActionPanel: FC<StockActionPanelProps> = ({
   const state = useSelector((state: RootState) => state);
 
   // props to create the form instance
-  const formProps: FormInstanceProps = {
+  const formProps: Input.FormInstanceProps = {
     values: [
       {
         name: "stockName",
         placeholder: "stock symbol",
-        type: TYPE.string,
+        type: Input.TYPE.string,
         value: name,
         updateValue: setName,
       },
       {
         name: "stockMode",
         placeholder: "number of days to train for",
-        type: TYPE.number,
+        type: Input.TYPE.number,
         value: mode,
         updateValue: setMode,
       },
@@ -58,7 +53,7 @@ export const StockActionPanel: FC<StockActionPanelProps> = ({
 
   return (
     <div style={{ ...functionCSS.box(animationState), ...style }}>
-      <FormInstance {...formProps} style={objectCSS.form} />
+      <Input.FormInstance {...formProps} style={objectCSS.form} />
       <div style={objectCSS.buttonBox}>
         <Button onClick={closeWindow} size={1.5} style={objectCSS.button}>
           Back

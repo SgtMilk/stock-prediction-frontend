@@ -1,5 +1,5 @@
 import React, { FC, ReactElement, useState } from "react";
-import { Display, Button } from "../../globalComponents";
+import { Display, Button } from "sgtmilk-global-components";
 import { objectCSS, functionCSS } from "./stylesheet";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import {

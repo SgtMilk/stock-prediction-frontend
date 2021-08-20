@@ -1,5 +1,5 @@
 import React, { FC, ReactElement, useState } from "react";
-import { Button, Input } from "globalComponents";
+import { Button, Input } from "sgtmilk-global-components";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState, Portfolios } from "data";
 import { objectCSS, functionCSS, portfolioSelectorCSS } from "./stylesheet";

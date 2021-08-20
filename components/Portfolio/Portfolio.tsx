@@ -1,6 +1,6 @@
 import React, { FC, ReactElement, useState } from "react";
 import { ConnectedStockView } from "../StockView/ConnectedStockView";
-import { Button, Input, Spacer } from "globalComponents";
+import { Button, Input, Spacer } from "sgtmilk-global-components";
 import { objectCSS } from "./stylesheet";
 import { useSelector } from "react-redux";
 import { RootState, Status } from "data";
