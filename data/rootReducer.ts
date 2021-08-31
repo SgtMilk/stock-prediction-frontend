@@ -1,3 +1,5 @@
+// Copyright (c) 2021 Alix Routhier-Lalonde. Licence included in root of package.
+
 import { combineReducers } from "@reduxjs/toolkit";
 
 import { statusReducer } from "./slices/statusSlice/statusSlice";

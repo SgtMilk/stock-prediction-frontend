@@ -1,3 +1,5 @@
+// Copyright (c) 2021 Alix Routhier-Lalonde. Licence included in root of package.
+
 import axios from "axios";
 import { baseURL } from "backendCalls";
 import { Stocks } from "data";

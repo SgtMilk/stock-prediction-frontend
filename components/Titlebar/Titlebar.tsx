@@ -1,6 +1,8 @@
+// Copyright (c) 2021 Alix Routhier-Lalonde. Licence included in root of package.
+
 import React, { FC, ReactElement } from "react";
 import { objectCSS } from "./stylesheet";
-import { Display, Button } from "sgtmilk-global-components";
+import { Button, StringInstance } from "sgtmilk-global-components";
 
 export interface TitlebarProps {
   menuFunction: () => void;
@@ -22,7 +24,7 @@ export const Titlebar: FC<TitlebarProps> = ({
   return (
     <div style={{ ...objectCSS.box, ...style }}>
       <Button onClick={menuFunction}>Menu</Button>
-      <Display.String.StringInstance
+      <StringInstance
         value={"The Stock Prediction Project"}
         style={objectCSS.title}
       />

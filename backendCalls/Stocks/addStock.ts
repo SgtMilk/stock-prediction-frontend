@@ -1,3 +1,5 @@
+// Copyright (c) 2021 Alix Routhier-Lalonde. Licence included in root of package.
+
 import { Stocks, Portfolios, Status, RootState } from "data";
 import axios from "axios";
 import { baseURL } from "backendCalls";

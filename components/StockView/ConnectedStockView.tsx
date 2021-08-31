@@ -1,3 +1,5 @@
+// Copyright (c) 2021 Alix Routhier-Lalonde. Licence included in root of package.
+
 import React, { FC, ReactElement } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState, Stocks } from "data";

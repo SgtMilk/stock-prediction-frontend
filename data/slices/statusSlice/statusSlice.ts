@@ -1,3 +1,5 @@
+// Copyright (c) 2021 Alix Routhier-Lalonde. Licence included in root of package.
+
 import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../../rootReducer";
 

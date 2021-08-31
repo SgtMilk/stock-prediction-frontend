@@ -1,3 +1,5 @@
+// Copyright (c) 2021 Alix Routhier-Lalonde. Licence included in root of package.
+
 import { StorybookDecorator } from "data";
 import React from "react";
 import { PortfolioSelector } from "./PortfolioSelector";
@@ -9,5 +11,5 @@ export default {
 };
 
 export const Default = () => {
-  return <PortfolioSelector closeMenu={() => {}} />;
+  return <PortfolioSelector closeMenu={() => {}} animationState={true} />;
 };

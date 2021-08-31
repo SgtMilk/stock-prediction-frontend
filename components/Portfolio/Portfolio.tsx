@@ -1,6 +1,13 @@
+// Copyright (c) 2021 Alix Routhier-Lalonde. Licence included in root of package.
+
 import React, { FC, ReactElement, useState } from "react";
 import { ConnectedStockView } from "../StockView/ConnectedStockView";
-import { Button, Input, Spacer } from "sgtmilk-global-components";
+import {
+  Button,
+  Spacer,
+  SelectInput,
+  SelectInputProps,
+} from "sgtmilk-global-components";
 import { objectCSS } from "./stylesheet";
 import { useSelector } from "react-redux";
 import { RootState, Status } from "data";
@@ -23,7 +30,7 @@ export const Portfolio: FC<PortfolioProps> = ({
   style,
 }): ReactElement => {
   const [mode, setMode] = useState<string>("4");
-  const modeProps: Input.Select.SelectInputProps = {
+  const modeProps: SelectInputProps = {
     name: "mode",
     choices: ["4", "9", "16"],
     value: mode,
@@ -34,7 +41,7 @@ export const Portfolio: FC<PortfolioProps> = ({
     <div style={style}>
       {Status.selectors.getSelectedPortfolio(state) === "" ? null : (
         <div style={objectCSS.buttons}>
-          <Input.Select.SelectInput {...modeProps} />
+          <SelectInput {...modeProps} />
           <Spacer />
           <Button onClick={openAddStock}>Add Stock</Button>
         </div>

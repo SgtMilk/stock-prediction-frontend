@@ -1,3 +1,5 @@
+// Copyright (c) 2021 Alix Routhier-Lalonde. Licence included in root of package.
+
 import { Stocks, StorybookDecorator } from "data";
 import React from "react";
 import { Portfolio } from "./Portfolio";

@@ -1,3 +1,5 @@
+// Copyright (c) 2021 Alix Routhier-Lalonde. Licence included in root of package.
+
 import React from "react";
 import { StockView, StockViewProps } from "./StockView";
 import { ConnectedStockView } from "./ConnectedStockView";

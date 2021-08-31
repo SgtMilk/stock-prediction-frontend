@@ -1,5 +1,7 @@
+// Copyright (c) 2021 Alix Routhier-Lalonde. Licence included in root of package.
+
 import React, { FC, ReactElement, useState } from "react";
-import { Button, Input } from "sgtmilk-global-components";
+import { Button, StringInput } from "sgtmilk-global-components";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState, Portfolios } from "data";
 import { objectCSS, functionCSS, portfolioSelectorCSS } from "./stylesheet";
@@ -14,6 +16,7 @@ export interface PortfolioSelectorProps {
 
 /**
  * Side panel for portfolio selection and creation
+ * @param animationState (the state of the animation, boolean)
  * @param closeMenu (function to close meny)
  * @param style (React.CSSProperties, optional)
  * @constructor
@@ -42,8 +45,7 @@ export const PortfolioSelector: FC<PortfolioSelectorProps> = ({
             <PortfolioBlock {...{ portfolio, closeMenu }} />
           </div>
         ))}
-        <Input.String.StringInput
-          name="portfolio_name"
+        <StringInput
           style={objectCSS.subBox}
           placeholder="portfolio name"
           value={value}

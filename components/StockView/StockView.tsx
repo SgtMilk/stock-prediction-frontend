@@ -1,5 +1,7 @@
+// Copyright (c) 2021 Alix Routhier-Lalonde. Licence included in root of package.
+
 import React, { FC, ReactElement, useState } from "react";
-import { Display, Button } from "sgtmilk-global-components";
+import { Button, Delegate, StringInstance } from "sgtmilk-global-components";
 import { objectCSS, functionCSS } from "./stylesheet";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import {
@@ -75,10 +77,7 @@ export const StockView: FC<StockViewProps> = ({
             <ArrowBackIcon />
           </Button>
         ) : null}
-        <Display.Delegate.Delegate
-          value={name}
-          style={functionCSS.title(expanded, mode)}
-        />
+        <Delegate value={name} style={functionCSS.title(expanded, mode)} />
         {expanded ? (
           <Button onClick={unpin} style={objectCSS.button}>
             {"Unpin"}
@@ -89,7 +88,7 @@ export const StockView: FC<StockViewProps> = ({
         {graphData ? (
           renderGraph
         ) : (
-          <Display.String.StringInstance
+          <StringInstance
             value={"Loading..."}
             style={functionCSS.text(expanded, mode)}
           />
