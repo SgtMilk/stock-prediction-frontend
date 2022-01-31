@@ -57,7 +57,8 @@ export const Connected = () => {
   const stock = {
     id: 1,
     name: "AMZN",
-    mode: 5,
+    interval: 5,
+    num_days: 5,
     graphData: [
       {
         date: "2021-07-27",

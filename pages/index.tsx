@@ -48,7 +48,7 @@ export const Mainpage = (): ReactElement => {
   if (!stockIds) stockIds = [];
 
   // getting information from backend
-  if (!fetched) {
+  if (fetched == false) {
     setFetched(true);
     getPortfolios(state, dispatch);
   }

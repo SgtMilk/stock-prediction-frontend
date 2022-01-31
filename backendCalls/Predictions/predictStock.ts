@@ -22,7 +22,7 @@ export const predictStock = async (
   if (typeof window === "undefined") return false;
   try {
     const response = await axios.get(
-      baseURL + `/predict/${stock.name}/${stock.mode}`
+      baseURL + `/predict/${stock.name}/${stock.num_days}/${stock.interval}`
     );
     const graphData: graphData[] = response.data;
     dispatch(

@@ -16,11 +16,12 @@ import { predictStock } from "backendCalls";
 export const addStock = async (
   name: string,
   mode: number,
+  numDays: number,
   state: RootState,
   dispatch: (...props: any) => any
 ) => {
   if (typeof window === "undefined") return false;
-  const response = await addBackend(name, mode, state, dispatch);
+  const response = await addBackend(name, mode, numDays, state, dispatch);
   if (response) {
     trainStock(response, dispatch);
     return true;
@@ -30,6 +31,7 @@ export const addStock = async (
 const addBackend = async (
   name: string,
   mode: number,
+  numDays: number,
   state: RootState,
   dispatch: (...props: any) => any
 ): Promise<Stocks.Stock | undefined> => {
@@ -37,12 +39,16 @@ const addBackend = async (
     console.error("impossible value for mode");
     return undefined;
   }
+  if (numDays < 1) {
+    console.error("impossible value for the duration of the prediction");
+    return undefined;
+  }
   try {
     const response = await axios.post(
       baseURL +
         `/portfolios/${Status.selectors.getSelectedPortfolio(
           state
-        )}/stocks/${name}/${mode}`
+        )}/stocks/${name}/${numDays}/${mode}`
     );
     if (response.status === 200) {
       const new_stock: Stocks.Stock = response.data.new_stock;

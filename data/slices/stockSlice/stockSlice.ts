@@ -6,7 +6,8 @@ import { RootState } from "../../rootReducer";
 export interface Stock {
   id: number;
   name: string;
-  mode: number;
+  interval: number;
+  num_days: number;
   graphData?: Array<{
     date: string;
     price: number;

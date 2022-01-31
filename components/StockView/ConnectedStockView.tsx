@@ -27,7 +27,7 @@ export const ConnectedStockView: FC<ConnectedStockViewProps> = ({
 
   if (stock) {
     let stockMode;
-    switch (stock.mode) {
+    switch (stock.interval) {
       case 1:
         stockMode = "Daily";
         break;
@@ -38,11 +38,11 @@ export const ConnectedStockView: FC<ConnectedStockViewProps> = ({
         stockMode = "Monthly";
         break;
       default:
-        stockMode = `${stock.mode} days`;
+        stockMode = `${stock.interval} days`;
         break;
     }
     const props: StockViewProps = {
-      name: `${stock.name} - ${stockMode}`,
+      name: `${stock.name} - interval: ${stockMode} - length: ${stock.num_days}`,
       graphData: stock.graphData,
       mode,
       unpin: () => deleteStock(stockId, state, dispatch),

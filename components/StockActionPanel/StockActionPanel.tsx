@@ -33,7 +33,8 @@ export const StockActionPanel: FC<StockActionPanelProps> = ({
 }): ReactElement => {
   // All the local state stuff
   const [name, setName] = useState<string>("");
-  const [mode, setMode] = useState<string>("");
+  const [interval, setInterval] = useState<string>("");
+  const [numDays, setNumDays] = useState<number>(0);
 
   // All the redux stuff
   const dispatch = useDispatch();
@@ -50,12 +51,19 @@ export const StockActionPanel: FC<StockActionPanelProps> = ({
         updateValue: setName,
       },
       {
-        name: "stockMode",
+        name: "stockInterval",
         choices: ["daily", "weekly", "monthly"],
-        placeholder: "mode",
+        placeholder: "interval",
         type: TYPE.select,
-        value: mode,
-        updateValue: setMode,
+        value: interval,
+        updateValue: setInterval,
+      },
+      {
+        name: "stockDuration",
+        placeholder: "duration",
+        type: TYPE.number,
+        value: numDays,
+        updateValue: setNumDays,
       },
     ],
     size: 1.5,
@@ -72,7 +80,7 @@ export const StockActionPanel: FC<StockActionPanelProps> = ({
         <Button
           onClick={async () => {
             let tempMode: number = 0;
-            switch (mode) {
+            switch (interval) {
               case "daily":
                 tempMode = 1;
                 break;
@@ -83,7 +91,8 @@ export const StockActionPanel: FC<StockActionPanelProps> = ({
                 tempMode = 22;
                 break;
             }
-            if (await addStock(name, tempMode, state, dispatch)) closeWindow();
+            if (await addStock(name, tempMode, numDays, state, dispatch))
+              closeWindow();
           }}
           size={1.5}
           style={objectCSS.button}
