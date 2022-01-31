@@ -1,5 +1,4 @@
-// Copyright (c) 2021 Alix Routhier-Lalonde. Licence included in root of package.
-
+// Copyright (c) 2022 Alix Routhier-Lalonde. Licence included in root of package.
 export const lightGrey = "#494949";
 export const grey = "#373A3C";
 export const darkGrey = "#262829";

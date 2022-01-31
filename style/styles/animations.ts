@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Alix Routhier-Lalonde. Licence included in root of package.
+// Copyright (c) 2022 Alix Routhier-Lalonde. Licence included in root of package.
 
 export const fadeIn = `@keyframes fadeIn{
     0%   { opacity: 0; }

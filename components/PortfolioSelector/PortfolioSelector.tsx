@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Alix Routhier-Lalonde. Licence included in root of package.
+// Copyright (c) 2022 Alix Routhier-Lalonde. Licence included in root of package.
 
 import React, { FC, ReactElement, useState } from "react";
 import { Button, StringInput } from "sgtmilk-global-components";
@@ -32,9 +32,8 @@ export const PortfolioSelector: FC<PortfolioSelectorProps> = ({
   // All the redux stuff
   const dispatch = useDispatch();
   const state = useSelector((state: RootState) => state);
-  const portfolios: Portfolios.Portfolio[] = Portfolios.selectors.selectAll(
-    state
-  );
+  const portfolios: Portfolios.Portfolio[] =
+    Portfolios.selectors.selectAll(state);
 
   return (
     <div style={{ ...functionCSS.box(animationState), ...style }}>

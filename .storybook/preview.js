@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Alix Routhier-Lalonde. Licence included in root of package.
+// Copyright (c) 2022 Alix Routhier-Lalonde. Licence included in root of package.
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -8,4 +8,4 @@ export const parameters = {
       date: /Date$/,
     },
   },
-}
+};

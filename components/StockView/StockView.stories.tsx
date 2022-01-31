@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Alix Routhier-Lalonde. Licence included in root of package.
+// Copyright (c) 2022 Alix Routhier-Lalonde. Licence included in root of package.
 
 import React from "react";
 import { StockView, StockViewProps } from "./StockView";

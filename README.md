@@ -22,4 +22,4 @@ Unfortunately, when I tried using jest and React testing, dependency errors made
 
 # Copyright
 
-Copyright (c) 2021 Alix Routhier-Lalonde. Licence included in root of package.
+Copyright (c) 2022 Alix Routhier-Lalonde. Licence included in root of package.

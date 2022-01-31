@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Alix Routhier-Lalonde. Licence included in root of package.
+// Copyright (c) 2022 Alix Routhier-Lalonde. Licence included in root of package.
 
 import { Stocks, StorybookDecorator } from "data";
 import React from "react";
@@ -17,7 +17,8 @@ export const Default = () => {
     {
       id: 1,
       name: "AMZN",
-      mode: 3,
+      interval: 3,
+      num_days: 3,
       graphData: [
         {
           date: "2021-07-27",
@@ -44,12 +45,14 @@ export const Default = () => {
     {
       id: 2,
       name: "AAPL",
-      mode: 3,
+      interval: 3,
+      num_days: 3,
     },
     {
       id: 3,
       name: "AAPL",
-      mode: 3,
+      interval: 3,
+      num_days: 3,
     },
   ];
   dispatch(Stocks.actions.setStocks(stocks));
