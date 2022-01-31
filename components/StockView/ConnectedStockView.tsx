@@ -42,7 +42,7 @@ export const ConnectedStockView: FC<ConnectedStockViewProps> = ({
         break;
     }
     const props: StockViewProps = {
-      name: `${stock.name} - interval: ${stockMode} - length: ${stock.num_days}`,
+      name: `${stock.name} - interval: ${stock.num_days} - length: ${stockMode}`,
       graphData: stock.graphData,
       mode,
       unpin: () => deleteStock(stockId, state, dispatch),
